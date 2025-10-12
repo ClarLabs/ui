@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { Calendar } from '../Calendar'
 import styles from './styles.module.scss'
 
 export interface DateRange {
@@ -12,74 +13,142 @@ export interface DateRangePickerProps {
 	minDate?: Date
 	maxDate?: Date
 	className?: string
+	placeholder?: string
+	disabled?: boolean
+	variant?: 'default' | 'minimal' | 'modern'
 }
 
-export function DateRangePicker({ value, onChange, minDate, maxDate, className = '' }: DateRangePickerProps) {
-	const [startValue, setStartValue] = useState<string>(value?.start ? formatDate(value.start) : '')
-	const [endValue, setEndValue] = useState<string>(value?.end ? formatDate(value.end) : '')
+export function DateRangePicker({
+	value,
+	onChange,
+	minDate,
+	maxDate,
+	className = '',
+	placeholder = 'Select date range',
+	disabled = false,
+	variant = 'default'
+}: DateRangePickerProps) {
+	const [isOpen, setIsOpen] = useState(false)
+	const [tempRange, setTempRange] = useState<DateRange>({ start: null, end: null })
+	const [selectingEnd, setSelectingEnd] = useState(false)
+	const containerRef = useRef<HTMLDivElement>(null)
 
-	const handleStartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const dateValue = e.target.value
-		setStartValue(dateValue)
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+				setIsOpen(false)
+				setTempRange({ start: null, end: null })
+				setSelectingEnd(false)
+			}
+		}
 
-		const startDate = dateValue ? new Date(dateValue) : null
-		const endDate = endValue ? new Date(endValue) : null
+		if (isOpen) {
+			document.addEventListener('mousedown', handleClickOutside)
+		}
 
-		if (startDate && !isNaN(startDate.getTime())) {
-			onChange?.({ start: startDate, end: endDate })
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [isOpen])
+
+	const handleDateClick = (date: Date) => {
+		if (!selectingEnd) {
+			// First click - set start date
+			setTempRange({ start: date, end: null })
+			setSelectingEnd(true)
 		} else {
-			onChange?.({ start: null, end: endDate })
+			// Second click - set end date
+			const start = tempRange.start!
+			const end = date
+
+			// Ensure start is before end
+			if (start > end) {
+				onChange?.({ start: end, end: start })
+			} else {
+				onChange?.({ start, end })
+			}
+
+			setIsOpen(false)
+			setTempRange({ start: null, end: null })
+			setSelectingEnd(false)
 		}
 	}
 
-	const handleEndChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const dateValue = e.target.value
-		setEndValue(dateValue)
+	const handleClear = (e: React.MouseEvent) => {
+		e.stopPropagation()
+		onChange?.({ start: null, end: null })
+		setTempRange({ start: null, end: null })
+		setSelectingEnd(false)
+	}
 
-		const startDate = startValue ? new Date(startValue) : null
-		const endDate = dateValue ? new Date(dateValue) : null
+	const formatDisplayDate = (date: Date): string => {
+		return date.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric'
+		})
+	}
 
-		if (endDate && !isNaN(endDate.getTime())) {
-			onChange?.({ start: startDate, end: endDate })
-		} else {
-			onChange?.({ start: startDate, end: null })
+	const getDisplayValue = () => {
+		if (value?.start && value?.end) {
+			return `${formatDisplayDate(value.start)} → ${formatDisplayDate(value.end)}`
 		}
+		if (value?.start) {
+			return formatDisplayDate(value.start)
+		}
+		return placeholder
+	}
+
+	// Get highlighted dates for the range
+	const getHighlightedDates = () => {
+		const dates: Date[] = []
+		const start = tempRange.start || value?.start
+		const end = tempRange.end || value?.end
+
+		if (start && end) {
+			const current = new Date(start)
+			while (current <= end) {
+				dates.push(new Date(current))
+				current.setDate(current.getDate() + 1)
+			}
+		}
+
+		return dates
 	}
 
 	return (
-		<div className={`${styles.dateRangePicker} ${className}`}>
-			<div className={styles.inputWrapper}>
-				<input
-					type="date"
-					className={styles.input}
-					value={startValue}
-					onChange={handleStartChange}
-					min={minDate ? formatDate(minDate) : undefined}
-					max={endValue || (maxDate ? formatDate(maxDate) : undefined)}
-					placeholder="Start date"
-				/>
-				<span className={styles.icon}>📅</span>
-			</div>
-			<span className={styles.separator}>→</span>
-			<div className={styles.inputWrapper}>
-				<input
-					type="date"
-					className={styles.input}
-					value={endValue}
-					onChange={handleEndChange}
-					min={startValue || (minDate ? formatDate(minDate) : undefined)}
-					max={maxDate ? formatDate(maxDate) : undefined}
-					placeholder="End date"
-				/>
-				<span className={styles.icon}>📅</span>
-			</div>
+		<div className={`${styles.dateRangePicker} ${className}`} ref={containerRef}>
+			<button
+				type="button"
+				className={`${styles.input} ${disabled ? styles.disabled : ''}`}
+				onClick={() => !disabled && setIsOpen(!isOpen)}
+				disabled={disabled}
+			>
+				<span className={styles.value}>{getDisplayValue()}</span>
+				<span className={styles.icons}>
+					{(value?.start || value?.end) && !disabled && (
+						<span className={styles.clearIcon} onClick={handleClear}>
+							×
+						</span>
+					)}
+					<span className={styles.icon}>📅</span>
+				</span>
+			</button>
+			{isOpen && (
+				<div className={styles.popover}>
+					<div className={styles.rangeInfo}>
+						{!selectingEnd ? 'Select start date' : 'Select end date'}
+					</div>
+					<Calendar
+						value={tempRange.start || value?.start || undefined}
+						onChange={handleDateClick}
+						minDate={minDate}
+						maxDate={maxDate}
+						highlightedDates={getHighlightedDates()}
+						variant={variant}
+					/>
+				</div>
+			)}
 		</div>
 	)
-}
-
-function formatDate(date: Date): string {
-	const year = date.getFullYear()
-	const month = String(date.getMonth() + 1).padStart(2, '0')
-	const day = String(date.getDate()).padStart(2, '0')
-	return `${year}-${month}-${day}`
 }
