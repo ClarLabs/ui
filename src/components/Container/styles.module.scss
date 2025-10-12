@@ -1,0 +1,110 @@
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Size variants with max-width
+.size-xs {
+	max-width: 20rem; // 320px
+}
+
+.size-sm {
+	max-width: 24rem; // 384px
+}
+
+.size-md {
+	max-width: 28rem; // 448px
+}
+
+.size-lg {
+	max-width: 32rem; // 512px
+}
+
+.size-xl {
+	max-width: 42rem; // 672px
+}
+
+.size-2xl {
+	max-width: 48rem; // 768px
+}
+
+.size-full {
+	max-width: none;
+}
+
+// Fluid container (no max-width)
+.fluid {
+	max-width: none;
+}
+
+// Padding variants
+.padding-none {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.padding-sm {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.padding-md {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.padding-lg {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.padding-xl {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+// Responsive padding
+@media (min-width: 640px) {
+	.padding-sm {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.padding-md {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.padding-lg {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.padding-xl {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.padding-md {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.padding-lg {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
+	.padding-xl {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+}

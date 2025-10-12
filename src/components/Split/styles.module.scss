@@ -1,0 +1,211 @@
+.split {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.horizontal {
+	flex-direction: row;
+}
+
+.vertical {
+	flex-direction: column;
+}
+
+.pane {
+	overflow: auto;
+	position: relative;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+
+	// Custom scrollbar styling
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 4px;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+}
+
+.gutter {
+	flex-shrink: 0;
+	position: relative;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: background 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: rgba(99, 102, 241, 0.15);
+	}
+
+	&:active {
+		background: rgba(99, 102, 241, 0.25);
+	}
+}
+
+.horizontal .gutter {
+	cursor: col-resize;
+	margin: 0 -1px;
+	z-index: 1;
+}
+
+.vertical .gutter {
+	cursor: row-resize;
+	margin: -1px 0;
+	z-index: 1;
+}
+
+.gutterHandle {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 2px;
+	transition: all 0.2s ease;
+}
+
+.horizontal .gutterHandle {
+	width: 2px;
+	height: 40px;
+}
+
+.vertical .gutterHandle {
+	width: 40px;
+	height: 2px;
+}
+
+.gutter:hover .gutterHandle {
+	background: rgba(99, 102, 241, 0.8);
+}
+
+.horizontal .gutter:hover .gutterHandle {
+	width: 3px;
+	height: 60px;
+}
+
+.vertical .gutter:hover .gutterHandle {
+	width: 60px;
+	height: 3px;
+}
+
+.dragging {
+	&.horizontal {
+		cursor: col-resize;
+	}
+
+	&.vertical {
+		cursor: row-resize;
+	}
+
+	.pane {
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.gutter {
+		background: rgba(99, 102, 241, 0.3);
+	}
+
+	.gutterHandle {
+		background: rgba(99, 102, 241, 1);
+	}
+
+	.horizontal .gutterHandle {
+		width: 4px;
+		height: 80px;
+	}
+
+	.vertical .gutterHandle {
+		width: 80px;
+		height: 4px;
+	}
+}
+
+.disabled {
+	.gutter {
+		cursor: default;
+		pointer-events: none;
+		opacity: 0.5;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.05);
+		}
+	}
+
+	.gutterHandle {
+		display: none;
+	}
+}
+
+// Light mode
+:global(.light-mode) {
+	.pane {
+		background: rgba(255, 255, 255, 0.5);
+		border-color: rgba(0, 0, 0, 0.1);
+
+		&::-webkit-scrollbar-track {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.2);
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+
+	.gutter {
+		background: rgba(0, 0, 0, 0.05);
+		border-color: rgba(0, 0, 0, 0.15);
+
+		&:hover {
+			background: rgba(99, 102, 241, 0.1);
+		}
+
+		&:active {
+			background: rgba(99, 102, 241, 0.2);
+		}
+	}
+
+	.gutterHandle {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	.gutter:hover .gutterHandle {
+		background: rgba(99, 102, 241, 0.8);
+	}
+
+	.dragging {
+		.gutter {
+			background: rgba(99, 102, 241, 0.25);
+		}
+
+		.gutterHandle {
+			background: rgba(99, 102, 241, 1);
+		}
+	}
+
+	.disabled {
+		.gutter {
+			&:hover {
+				background: rgba(0, 0, 0, 0.05);
+			}
+		}
+	}
+}

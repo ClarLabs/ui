@@ -1,0 +1,88 @@
+.videoContainer {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+
+	&:hover {
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+}
+
+.video {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 0.5rem;
+	object-fit: contain;
+
+	&:focus {
+		outline: 2px solid rgba(99, 102, 241, 0.5);
+		outline-offset: 2px;
+	}
+}
+
+// Aspect ratio variants
+.aspect-16-9 {
+	aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+	aspect-ratio: 4 / 3;
+}
+
+.aspect-1-1 {
+	aspect-ratio: 1 / 1;
+}
+
+.aspect-21-9 {
+	aspect-ratio: 21 / 9;
+}
+
+// Video controls styling (custom appearance)
+.video::-webkit-media-controls-panel {
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(10px);
+}
+
+.video::-webkit-media-controls-play-button,
+.video::-webkit-media-controls-mute-button,
+.video::-webkit-media-controls-fullscreen-button {
+	filter: brightness(1.2);
+}
+
+.video::-webkit-media-controls-timeline {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 2px;
+}
+
+.video::-webkit-media-controls-current-time-display,
+.video::-webkit-media-controls-time-remaining-display {
+	color: #e0e0e0;
+}
+
+// Firefox controls
+.video::-moz-media-controls {
+	background: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(10px);
+}
+
+// Light mode adjustments
+:global(.light-mode) {
+	.videoContainer {
+		background: rgba(0, 0, 0, 0.05);
+		border-color: rgba(0, 0, 0, 0.1);
+
+		&:hover {
+			border-color: rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	.video::-webkit-media-controls-current-time-display,
+	.video::-webkit-media-controls-time-remaining-display {
+		color: #111827;
+	}
+}

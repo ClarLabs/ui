@@ -1,0 +1,149 @@
+@keyframes gaugeAnimation {
+	from {
+		stroke-dashoffset: 314; // Full circumference approximation
+	}
+}
+
+.gaugeContainer {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.svg {
+	width: 100%;
+	height: 100%;
+	transform: rotate(0deg);
+}
+
+.animatedPath {
+	animation: gaugeAnimation 1s ease-out forwards;
+}
+
+.centerText {
+	text-anchor: middle;
+	dominant-baseline: middle;
+}
+
+.value {
+	font-size: 1rem;
+	font-weight: 700;
+	fill: #e0e0e0;
+}
+
+.unit {
+	font-size: 0.75rem;
+	font-weight: 400;
+	fill: #9ca3af;
+}
+
+.label {
+	font-size: 0.75rem;
+	font-weight: 500;
+	fill: #9ca3af;
+}
+
+.minMaxLabels {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 0.5rem;
+}
+
+.minLabel,
+.maxLabel {
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: #9ca3af;
+}
+
+// Size variants
+.sm {
+	width: 100px;
+	height: 100px;
+
+	.value {
+		font-size: 0.875rem;
+	}
+
+	.unit {
+		font-size: 0.625rem;
+	}
+
+	.label {
+		font-size: 0.625rem;
+	}
+}
+
+.md {
+	width: 150px;
+	height: 150px;
+
+	.value {
+		font-size: 1.25rem;
+	}
+
+	.unit {
+		font-size: 0.875rem;
+	}
+
+	.label {
+		font-size: 0.875rem;
+	}
+}
+
+.lg {
+	width: 200px;
+	height: 200px;
+
+	.value {
+		font-size: 1.75rem;
+	}
+
+	.unit {
+		font-size: 1rem;
+	}
+
+	.label {
+		font-size: 1rem;
+	}
+}
+
+.xl {
+	width: 250px;
+	height: 250px;
+
+	.value {
+		font-size: 2.25rem;
+	}
+
+	.unit {
+		font-size: 1.25rem;
+	}
+
+	.label {
+		font-size: 1.25rem;
+	}
+}
+
+// Light mode adjustments
+:global(.light-mode) {
+	.value {
+		fill: #111827;
+	}
+
+	.unit {
+		fill: #6b7280;
+	}
+
+	.label {
+		fill: #6b7280;
+	}
+
+	.minLabel,
+	.maxLabel {
+		color: #6b7280;
+	}
+}

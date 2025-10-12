@@ -1,0 +1,163 @@
+.contextMenu {
+	position: fixed;
+	z-index: 9999;
+	min-width: 240px;
+	padding: 0.5rem 0;
+	background: rgba(30, 30, 40, 0.95);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.5rem;
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+	animation: contextMenuFadeIn 0.15s ease-out;
+}
+
+@keyframes contextMenuFadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.menuItem {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.625rem 0.75rem;
+	color: #e0e0e0;
+	font-size: 0.875rem;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.15s ease;
+
+	&:hover:not(.disabled) {
+		background: rgba(99, 102, 241, 0.2);
+		color: #c7d2fe;
+	}
+
+	&.disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	&.danger {
+		color: #fca5a5;
+
+		&:hover:not(.disabled) {
+			background: rgba(239, 68, 68, 0.2);
+			color: #fca5a5;
+		}
+	}
+}
+
+.menuItemContent {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex: 1;
+	min-width: 0;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	flex-shrink: 0;
+}
+
+.label {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.menuItemRight {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-left: 1rem;
+}
+
+.shortcut {
+	font-size: 0.75rem;
+	color: #9ca3af;
+	font-family: monospace;
+}
+
+.submenuIndicator {
+	font-size: 1.125rem;
+	color: #9ca3af;
+}
+
+.separator {
+	height: 1px;
+	margin: 0.375rem 0;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.submenu {
+	position: absolute;
+	left: 100%;
+	top: -0.5rem;
+	margin-left: 0.25rem;
+	min-width: 200px;
+	padding: 0.5rem 0;
+	background: rgba(30, 30, 40, 0.95);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.5rem;
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+	animation: submenuSlideIn 0.15s ease-out;
+}
+
+@keyframes submenuSlideIn {
+	from {
+		opacity: 0;
+		transform: translateX(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+// Light mode adjustments
+:global(.light-mode) {
+	.contextMenu,
+	.submenu {
+		background: rgba(255, 255, 255, 0.98);
+		border-color: rgba(0, 0, 0, 0.15);
+	}
+
+	.menuItem {
+		color: #111827;
+
+		&:hover:not(.disabled) {
+			background: rgba(99, 102, 241, 0.15);
+			color: #4338ca;
+		}
+
+		&.danger {
+			color: #dc2626;
+
+			&:hover:not(.disabled) {
+				background: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+		}
+	}
+
+	.shortcut,
+	.submenuIndicator {
+		color: #6b7280;
+	}
+
+	.separator {
+		background: rgba(0, 0, 0, 0.1);
+	}
+}

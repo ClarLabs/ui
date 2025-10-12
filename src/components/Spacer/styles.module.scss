@@ -1,0 +1,124 @@
+.spacer {
+	flex-shrink: 0;
+	pointer-events: none;
+}
+
+// Vertical spacing (default)
+.axis-vertical {
+	width: 0;
+	min-width: 0;
+
+	&.size-xs {
+		height: 0.25rem; // 4px
+	}
+
+	&.size-sm {
+		height: 0.5rem; // 8px
+	}
+
+	&.size-md {
+		height: 1rem; // 16px
+	}
+
+	&.size-lg {
+		height: 1.5rem; // 24px
+	}
+
+	&.size-xl {
+		height: 2rem; // 32px
+	}
+
+	&.size-2xl {
+		height: 3rem; // 48px
+	}
+
+	&.size-3xl {
+		height: 4rem; // 64px
+	}
+
+	&.size-4xl {
+		height: 6rem; // 96px
+	}
+}
+
+// Horizontal spacing
+.axis-horizontal {
+	height: 0;
+	min-height: 0;
+	display: inline-block;
+
+	&.size-xs {
+		width: 0.25rem; // 4px
+	}
+
+	&.size-sm {
+		width: 0.5rem; // 8px
+	}
+
+	&.size-md {
+		width: 1rem; // 16px
+	}
+
+	&.size-lg {
+		width: 1.5rem; // 24px
+	}
+
+	&.size-xl {
+		width: 2rem; // 32px
+	}
+
+	&.size-2xl {
+		width: 3rem; // 48px
+	}
+
+	&.size-3xl {
+		width: 4rem; // 64px
+	}
+
+	&.size-4xl {
+		width: 6rem; // 96px
+	}
+}
+
+// Both directions
+.axis-both {
+	&.size-xs {
+		width: 0.25rem; // 4px
+		height: 0.25rem; // 4px
+	}
+
+	&.size-sm {
+		width: 0.5rem; // 8px
+		height: 0.5rem; // 8px
+	}
+
+	&.size-md {
+		width: 1rem; // 16px
+		height: 1rem; // 16px
+	}
+
+	&.size-lg {
+		width: 1.5rem; // 24px
+		height: 1.5rem; // 24px
+	}
+
+	&.size-xl {
+		width: 2rem; // 32px
+		height: 2rem; // 32px
+	}
+
+	&.size-2xl {
+		width: 3rem; // 48px
+		height: 3rem; // 48px
+	}
+
+	&.size-3xl {
+		width: 4rem; // 64px
+		height: 4rem; // 64px
+	}
+
+	&.size-4xl {
+		width: 6rem; // 96px
+		height: 6rem; // 96px
+	}
+}
