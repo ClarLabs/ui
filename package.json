@@ -60,7 +60,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/clarlabs/ui.git"
+		"url": "https://github.com/ClarLabs/ui"
 	},
 	"publishConfig": {
 		"access": "public"
