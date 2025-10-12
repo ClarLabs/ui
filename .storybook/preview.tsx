@@ -3,21 +3,20 @@ import React, { useEffect } from 'react'
 import '../src/styles/global.scss'
 
 // Decorator to sync background with light-mode class
-const withTheme: Decorator = (Story, context) => {
+export const withTheme: Decorator = (Story, context) => {
 	const background = context.globals.backgrounds?.value
+	const root = document.getElementById('root') || document.documentElement
+	const isLight = background === 'light'
+	const Wrapper: React.FC = () => {
+		useEffect(() => {
+			if (isLight) root.classList.add('light-mode')
+			else root.classList.remove('light-mode')
+		}, [background])
 
-	useEffect(() => {
-		const isLight = background === '#f5f5f5'
-		const root = document.documentElement
+		return <Story />
+	}
 
-		if (isLight) {
-			root.classList.add('light-mode')
-		} else {
-			root.classList.remove('light-mode')
-		}
-	}, [background])
-
-	return React.createElement(Story)
+	return <Wrapper />
 }
 
 const preview: Preview = {
