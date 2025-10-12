@@ -1,0 +1,72 @@
+// Colors
+$primary-color: #3b82f6;
+$secondary-color: #8b5cf6;
+$success-color: #10b981;
+$warning-color: #f59e0b;
+$error-color: #ef4444;
+$info-color: #06b6d4;
+
+// Dark theme
+$dark-bg: #0f0f1a;
+$dark-bg-secondary: rgba(30, 30, 40, 0.95);
+$dark-text: #e0e0e0;
+$dark-text-secondary: #9ca3af;
+$dark-border: rgba(255, 255, 255, 0.2);
+
+// Light theme
+$light-bg: #ffffff;
+$light-bg-secondary: rgba(255, 255, 255, 0.95);
+$light-text: #111827;
+$light-text-secondary: #6b7280;
+$light-border: rgba(0, 0, 0, 0.15);
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+
+// Border radius
+$radius-sm: 0.375rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-index
+$z-dropdown: 1000;
+$z-modal: 2000;
+$z-tooltip: 3000;
+
+// CSS Variables for runtime theming
+:root {
+  --font-family: #{$font-family};
+  --background: #1a1a1a;
+  --text-color: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --border-color: #{$dark-border};
+  --card-background: rgba(30, 30, 40, 0.8);
+  --input-background: rgba(40, 40, 50, 0.8);
+  --input-border: rgba(255, 255, 255, 0.1);
+}

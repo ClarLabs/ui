@@ -1,0 +1,97 @@
+.spinnerWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  display: inline-block;
+  position: relative;
+}
+
+.circle {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-top-color: #3b82f6;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner.sm {
+  width: 1rem;
+  height: 1rem;
+
+  .circle {
+    border-width: 2px;
+  }
+}
+
+.spinner.md {
+  width: 2rem;
+  height: 2rem;
+}
+
+.spinner.lg {
+  width: 3rem;
+  height: 3rem;
+
+  .circle {
+    border-width: 4px;
+  }
+}
+
+.spinner.default .circle {
+  border-top-color: #3b82f6;
+}
+
+.spinner.primary .circle {
+  border-top-color: #8b5cf6;
+}
+
+.spinner.secondary .circle {
+  border-top-color: #ec4899;
+}
+
+.label {
+  color: #e0e0e0;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+
+:global(.light-mode) {
+  .circle {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .spinner.default .circle {
+    border-top-color: #3b82f6;
+  }
+
+  .spinner.primary .circle {
+    border-top-color: #8b5cf6;
+  }
+
+  .spinner.secondary .circle {
+    border-top-color: #ec4899;
+  }
+
+  .label {
+    color: #111827;
+  }
+}

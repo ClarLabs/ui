@@ -1,0 +1,144 @@
+.toggleSwitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggleSwitch.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  background: rgba(60, 60, 70, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.switch.sm {
+  width: 2.5rem;
+  height: 1.25rem;
+}
+
+.switch.md {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.switch.lg {
+  width: 3.5rem;
+  height: 1.75rem;
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #9ca3af;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.switch.sm .slider {
+  left: 0.125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.switch.md .slider {
+  left: 0.15rem;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.switch.lg .slider {
+  left: 0.175rem;
+  width: 1.225rem;
+  height: 1.225rem;
+}
+
+.switch.checked {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+}
+
+.switch.checked .slider {
+  background: #3b82f6;
+}
+
+.switch.sm.checked .slider {
+  left: calc(100% - 0.125rem);
+  transform: translate(-100%, -50%);
+}
+
+.switch.md.checked .slider {
+  left: calc(100% - 0.15rem);
+  transform: translate(-100%, -50%);
+}
+
+.switch.lg.checked .slider {
+  left: calc(100% - 0.175rem);
+  transform: translate(-100%, -50%);
+}
+
+.toggleSwitch:not(.disabled):hover .switch {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.toggleSwitch:not(.disabled):hover .switch.checked {
+  border-color: #60a5fa;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+
+:global(.light-mode) {
+  .switch {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .slider {
+    background: #6b7280;
+  }
+
+  .switch.checked {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+  }
+
+  .switch.checked .slider {
+    background: #3b82f6;
+  }
+
+  .toggleSwitch:not(.disabled):hover .switch {
+    border-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .toggleSwitch:not(.disabled):hover .switch.checked {
+    border-color: #60a5fa;
+  }
+
+  .label {
+    color: #111827;
+  }
+}

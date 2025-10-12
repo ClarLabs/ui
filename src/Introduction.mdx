@@ -1,0 +1,86 @@
+# ClarLabs UI Component Library
+
+A modern, elegant UI component library built with React and TypeScript, featuring beautiful glassmorphism design and comprehensive dark/light theme support.
+
+## Features
+
+- 🎨 **Modern Glassmorphism Design** - Beautiful frosted glass effects with backdrop blur
+- 🌓 **Dark/Light Theme** - Full theme support with smooth transitions
+- 📱 **Fully Responsive** - Works perfectly on mobile, tablet, and desktop
+- ♿ **Accessible** - Built with ARIA attributes and keyboard navigation
+- 🔧 **TypeScript** - Full TypeScript support with comprehensive type definitions
+- 📦 **Tree-shakeable** - Import only what you need
+- 🎭 **CSS Modules** - Scoped styles with no conflicts
+
+## Installation
+
+```bash
+npm install @clarlabs/ui
+```
+
+## Usage
+
+```tsx
+import { Button, Card, Input } from '@clarlabs/ui';
+import '@clarlabs/ui/dist/index.css';
+
+function App() {
+  return (
+    <Card title="Welcome">
+      <Input placeholder="Enter your name" />
+      <Button variant="primary">Submit</Button>
+    </Card>
+  );
+}
+```
+
+## Components
+
+This library includes 40+ production-ready components:
+
+### Form Components
+- Button, ButtonGroup
+- Input, Textarea
+- Checkbox, RadioButton, ToggleSwitch
+- Dropdown, Combobox, RichSelect
+- DatePicker, DateRangePicker
+- FilePicker, RangeInput
+
+### Layout Components
+- Card, Header
+- StackView, Divider
+- Modal, SidePanel
+- Tabs, Accordion
+
+### Navigation Components
+- VerticalNav, Breadcrumbs
+- Pagination, Stepper
+
+### Data Display
+- Table, Datagrid
+- List, TreeView
+- Timeline, Badge, Avatar
+
+### Feedback Components
+- Alert, Toast
+- Spinner, ProgressBar
+- Tooltip, Signpost
+
+## Theme Customization
+
+Toggle between light and dark themes by adding the `light-mode` class to your root element:
+
+```tsx
+// Toggle theme
+document.body.classList.toggle('light-mode');
+```
+
+## Getting Help
+
+- 📚 Browse the component documentation in Storybook
+- 🐛 Report issues on GitHub
+- 💬 Join our community discussions
+
+---
+
+**Built with ❤️ by ClarLabs**

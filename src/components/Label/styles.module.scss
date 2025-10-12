@@ -1,0 +1,50 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover:not(.disabled) {
+    color: #f0f0f0;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.sm {
+    font-size: 0.8rem;
+  }
+
+  &.md {
+    font-size: 0.875rem;
+  }
+
+  &.lg {
+    font-size: 1rem;
+  }
+}
+
+.required {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+
+:global(.light-mode) {
+  .label {
+    color: #111827;
+
+    &:hover:not(.disabled) {
+      color: #000000;
+    }
+  }
+
+  .required {
+    color: #dc2626;
+  }
+}

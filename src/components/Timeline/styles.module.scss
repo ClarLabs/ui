@@ -1,0 +1,363 @@
+.timeline {
+  display: flex;
+  position: relative;
+}
+
+.timeline.vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline.horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+}
+
+.timeline.vertical .timelineItem {
+  flex-direction: row;
+  padding-bottom: 2rem;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline.horizontal .timelineItem {
+  flex-direction: column;
+  min-width: 250px;
+  padding-right: 2rem;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.timelineMarker {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(60, 60, 70, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline.vertical .timelineMarker {
+  margin-right: 1.5rem;
+}
+
+.timeline.horizontal .timelineMarker {
+  margin-bottom: 1rem;
+}
+
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.timelineMarker.default {
+  border-color: rgba(255, 255, 255, 0.2);
+
+  .dot {
+    background: #9ca3af;
+  }
+
+  .icon {
+    color: #9ca3af;
+  }
+}
+
+.timelineMarker.primary {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+
+  .dot {
+    background: #3b82f6;
+  }
+
+  .icon {
+    color: #3b82f6;
+  }
+}
+
+.timelineMarker.success {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+
+  .dot {
+    background: #10b981;
+  }
+
+  .icon {
+    color: #10b981;
+  }
+}
+
+.timelineMarker.warning {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+
+  .dot {
+    background: #f59e0b;
+  }
+
+  .icon {
+    color: #f59e0b;
+  }
+}
+
+.timelineMarker.error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+
+  .dot {
+    background: #ef4444;
+  }
+
+  .icon {
+    color: #ef4444;
+  }
+}
+
+.timelineMarker.info {
+  border-color: #06b6d4;
+  background: rgba(6, 182, 212, 0.1);
+
+  .dot {
+    background: #06b6d4;
+  }
+
+  .icon {
+    color: #06b6d4;
+  }
+}
+
+.timelineConnector {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline.vertical .timelineConnector {
+  left: 1.25rem;
+  top: 2.5rem;
+  width: 2px;
+  height: calc(100% - 1.5rem);
+}
+
+.timeline.horizontal .timelineConnector {
+  top: 1.25rem;
+  left: 2.5rem;
+  height: 2px;
+  width: calc(100% - 1.5rem);
+}
+
+.timelineConnector.primary {
+  background: #3b82f6;
+}
+
+.timelineConnector.success {
+  background: #10b981;
+}
+
+.timelineConnector.warning {
+  background: #f59e0b;
+}
+
+.timelineConnector.error {
+  background: #ef4444;
+}
+
+.timelineConnector.info {
+  background: #06b6d4;
+}
+
+.timelineContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.timeline.vertical .timelineContent {
+  padding-top: 0.25rem;
+}
+
+.timeline.horizontal .timelineContent {
+  min-height: 100px;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+:global(.light-mode) {
+  .timelineMarker {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .dot {
+    background: #6b7280;
+  }
+
+  .icon {
+    color: #6b7280;
+  }
+
+  .timelineMarker.default {
+    border-color: rgba(0, 0, 0, 0.15);
+
+    .dot {
+      background: #6b7280;
+    }
+
+    .icon {
+      color: #6b7280;
+    }
+  }
+
+  .timelineMarker.primary {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+
+    .dot {
+      background: #3b82f6;
+    }
+
+    .icon {
+      color: #3b82f6;
+    }
+  }
+
+  .timelineMarker.success {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+
+    .dot {
+      background: #10b981;
+    }
+
+    .icon {
+      color: #10b981;
+    }
+  }
+
+  .timelineMarker.warning {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+
+    .dot {
+      background: #f59e0b;
+    }
+
+    .icon {
+      color: #f59e0b;
+    }
+  }
+
+  .timelineMarker.error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+
+    .dot {
+      background: #ef4444;
+    }
+
+    .icon {
+      color: #ef4444;
+    }
+  }
+
+  .timelineMarker.info {
+    border-color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+
+    .dot {
+      background: #06b6d4;
+    }
+
+    .icon {
+      color: #06b6d4;
+    }
+  }
+
+  .timelineConnector {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .timelineConnector.primary {
+    background: #3b82f6;
+  }
+
+  .timelineConnector.success {
+    background: #10b981;
+  }
+
+  .timelineConnector.warning {
+    background: #f59e0b;
+  }
+
+  .timelineConnector.error {
+    background: #ef4444;
+  }
+
+  .timelineConnector.info {
+    background: #06b6d4;
+  }
+
+  .date {
+    color: #6b7280;
+  }
+
+  .title {
+    color: #111827;
+  }
+
+  .description {
+    color: #6b7280;
+  }
+}
