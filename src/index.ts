@@ -183,3 +183,9 @@ export type { ChatProps, ChatMessage } from './components/Chat'
 
 export { Calendar } from './components/Calendar'
 export type { CalendarProps, CalendarEvent } from './components/Calendar'
+
+export { Hero } from './components/Hero'
+export type { HeroProps, HeroVariant, HeroSize, HeroAlignment } from './components/Hero'
+
+export { Footer } from './components/Footer'
+export type { FooterProps, FooterVariant, FooterLink, FooterSection, SocialLink } from './components/Footer'
