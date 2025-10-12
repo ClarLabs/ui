@@ -100,7 +100,6 @@ Accordion, Alert, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbo
 
 ### Specialized UI
 
--   [ ] **Split** - Split pane component
 -   [ ] **Terminal** - Terminal emulator UI
 -   [ ] **JsonViewer** - JSON tree viewer
 -   [ ] **MarkdownViewer** - Markdown renderer
@@ -110,7 +109,6 @@ Accordion, Alert, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbo
 ### Data Visualization
 
 -   [ ] **Sparkline** - Inline charts
--   [ ] **Gauge** - Circular gauge meter
 -   [ ] **TreeMap** - Hierarchical data visualization
 
 ### Advanced Forms
