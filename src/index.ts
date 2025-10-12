@@ -171,3 +171,15 @@ export type { SplitProps, SplitDirection } from './components/Split'
 
 export { ImageGallery } from './components/ImageGallery'
 export type { ImageGalleryProps, GalleryImage, ImageGalleryVariant, ImageGallerySize } from './components/ImageGallery'
+
+export { ThemeToggle } from './components/ThemeToggle'
+export type { ThemeToggleProps } from './components/ThemeToggle'
+
+export { LanguageSelect } from './components/LanguageSelect'
+export type { LanguageSelectProps, Language } from './components/LanguageSelect'
+
+export { Chat } from './components/Chat'
+export type { ChatProps, ChatMessage } from './components/Chat'
+
+export { Calendar } from './components/Calendar'
+export type { CalendarProps, CalendarEvent } from './components/Calendar'

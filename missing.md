@@ -47,7 +47,6 @@ Accordion, Alert, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbo
 ### Media
 
 -   [ ] **Image** - Enhanced image with loading states
--   [ ] **ImageGallery** - Image carousel/gallery
 
 ### Overlay
 
@@ -64,7 +63,6 @@ Accordion, Alert, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbo
 -   [ ] **VirtualList** - Virtualized list for large datasets
 -   [ ] **InfiniteScroll** - Infinite scroll container
 -   [ ] **Kanban** - Kanban board component
--   [ ] **Calendar** - Full calendar view
 -   [ ] **Gantt** - Gantt chart for project timelines
 -   [ ] **Chart** - Basic chart components (wrapper for chart library)
 
@@ -81,7 +79,6 @@ Accordion, Alert, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbo
 -   [ ] **CommandK** - Command menu (⌘K style)
 -   [ ] **Tour** - Guided tour/walkthrough
 -   [ ] **HotKeys** - Keyboard shortcut handler
--   [ ] **FileUpload** - Drag-and-drop file upload
 -   [ ] **ColorSwatch** - Color palette display
 -   [ ] **QRCode** - QR code generator/display
 -   [ ] **Barcode** - Barcode display
