@@ -1,108 +1,107 @@
 .divider {
-  display: flex;
-  align-items: center;
-  border: none;
-  margin: 1rem 0;
+	display: flex;
+	align-items: center;
+	border: none;
+	margin: 1rem 0;
 }
 
 .horizontal {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.2);
+	width: 100%;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.2);
 
-  &.solid {
-    background: rgba(255, 255, 255, 0.2);
-  }
+	&.solid {
+		background: rgba(255, 255, 255, 0.2);
+	}
 
-  &.dashed {
-    background: none;
-    border-top: 1px dashed rgba(255, 255, 255, 0.2);
-  }
+	&.dashed {
+		background: none;
+		border-top: 1px dashed rgba(255, 255, 255, 0.2);
+	}
 
-  &.dotted {
-    background: none;
-    border-top: 1px dotted rgba(255, 255, 255, 0.2);
-  }
+	&.dotted {
+		background: none;
+		border-top: 1px dotted rgba(255, 255, 255, 0.2);
+	}
 
-  .line {
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-  }
+	.line {
+		flex: 1;
+		height: 1px;
+		background: rgba(255, 255, 255, 0.2);
+	}
 
-  .label {
-    padding: 0 1rem;
-    font-size: 0.875rem;
-    color: #9ca3af;
-    white-space: nowrap;
-  }
+	.label {
+		padding: 0 1rem;
+		font-size: 0.875rem;
+		color: #9ca3af;
+		white-space: nowrap;
+	}
 }
 
 .vertical {
-  width: 1px;
-  height: 100%;
-  min-height: 2rem;
-  margin: 0 1rem;
-  background: rgba(255, 255, 255, 0.2);
+	width: 1px;
+	height: 100%;
+	min-height: 2rem;
+	margin: 0 1rem;
+	background: rgba(255, 255, 255, 0.2);
 
-  &.solid {
-    background: rgba(255, 255, 255, 0.2);
-  }
+	&.solid {
+		background: rgba(255, 255, 255, 0.2);
+	}
 
-  &.dashed {
-    background: none;
-    border-left: 1px dashed rgba(255, 255, 255, 0.2);
-  }
+	&.dashed {
+		background: none;
+		border-left: 1px dashed rgba(255, 255, 255, 0.2);
+	}
 
-  &.dotted {
-    background: none;
-    border-left: 1px dotted rgba(255, 255, 255, 0.2);
-  }
+	&.dotted {
+		background: none;
+		border-left: 1px dotted rgba(255, 255, 255, 0.2);
+	}
 }
 
-
 :global(.light-mode) {
-  .horizontal {
-    background: rgba(0, 0, 0, 0.15);
+	.horizontal {
+		background: rgba(0, 0, 0, 0.15);
 
-    &.solid {
-      background: rgba(0, 0, 0, 0.15);
-    }
+		&.solid {
+			background: rgba(0, 0, 0, 0.15);
+		}
 
-    &.dashed {
-      background: none;
-      border-top-color: rgba(0, 0, 0, 0.15);
-    }
+		&.dashed {
+			background: none;
+			border-top-color: rgba(0, 0, 0, 0.15);
+		}
 
-    &.dotted {
-      background: none;
-      border-top-color: rgba(0, 0, 0, 0.15);
-    }
+		&.dotted {
+			background: none;
+			border-top-color: rgba(0, 0, 0, 0.15);
+		}
 
-    .line {
-      background: rgba(0, 0, 0, 0.15);
-    }
+		.line {
+			background: rgba(0, 0, 0, 0.15);
+		}
 
-    .label {
-      color: #6b7280;
-    }
-  }
+		.label {
+			color: #6b7280;
+		}
+	}
 
-  .vertical {
-    background: rgba(0, 0, 0, 0.15);
+	.vertical {
+		background: rgba(0, 0, 0, 0.15);
 
-    &.solid {
-      background: rgba(0, 0, 0, 0.15);
-    }
+		&.solid {
+			background: rgba(0, 0, 0, 0.15);
+		}
 
-    &.dashed {
-      background: none;
-      border-left-color: rgba(0, 0, 0, 0.15);
-    }
+		&.dashed {
+			background: none;
+			border-left-color: rgba(0, 0, 0, 0.15);
+		}
 
-    &.dotted {
-      background: none;
-      border-left-color: rgba(0, 0, 0, 0.15);
-    }
-  }
+		&.dotted {
+			background: none;
+			border-left-color: rgba(0, 0, 0, 0.15);
+		}
+	}
 }

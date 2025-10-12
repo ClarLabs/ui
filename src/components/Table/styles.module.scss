@@ -1,125 +1,124 @@
 .tableWrapper {
-  width: 100%;
-  overflow-x: auto;
-  background: rgba(30, 30, 40, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
+	width: 100%;
+	overflow-x: auto;
+	background: rgba(30, 30, 40, 0.95);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.5rem;
 }
 
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.875rem;
 }
 
 .thead {
-  background: rgba(50, 50, 60, 0.5);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+	background: rgba(50, 50, 60, 0.5);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .th {
-  padding: 1rem;
-  text-align: left;
-  font-weight: 600;
-  color: #e0e0e0;
-  white-space: nowrap;
+	padding: 1rem;
+	text-align: left;
+	font-weight: 600;
+	color: #e0e0e0;
+	white-space: nowrap;
 }
 
 .tbody {
-  color: #e0e0e0;
+	color: #e0e0e0;
 }
 
 .tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.2s ease;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: background 0.2s ease;
 
-  &:last-child {
-    border-bottom: none;
-  }
+	&:last-child {
+		border-bottom: none;
+	}
 }
 
 .td {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .table.striped .tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
+	background: rgba(255, 255, 255, 0.02);
 }
 
 .table.hoverable .tr:hover {
-  background: rgba(255, 255, 255, 0.05);
+	background: rgba(255, 255, 255, 0.05);
 }
 
 .table.bordered {
-  .th,
-  .td {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+	.th,
+	.td {
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
 
-    &:last-child {
-      border-right: none;
-    }
-  }
+		&:last-child {
+			border-right: none;
+		}
+	}
 }
 
 .table.compact {
-  .th,
-  .td {
-    padding: 0.5rem;
-  }
+	.th,
+	.td {
+		padding: 0.5rem;
+	}
 }
 
 .tr.clickable {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .empty {
-  padding: 2rem;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 0.875rem;
+	padding: 2rem;
+	text-align: center;
+	color: #9ca3af;
+	font-size: 0.875rem;
 }
 
-
 :global(.light-mode) {
-  .tableWrapper {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(0, 0, 0, 0.15);
-  }
+	.tableWrapper {
+		background: rgba(255, 255, 255, 0.95);
+		border-color: rgba(0, 0, 0, 0.15);
+	}
 
-  .thead {
-    background: rgba(240, 240, 240, 0.8);
-    border-bottom-color: rgba(0, 0, 0, 0.15);
-  }
+	.thead {
+		background: rgba(240, 240, 240, 0.8);
+		border-bottom-color: rgba(0, 0, 0, 0.15);
+	}
 
-  .th {
-    color: #111827;
-  }
+	.th {
+		color: #111827;
+	}
 
-  .tbody {
-    color: #111827;
-  }
+	.tbody {
+		color: #111827;
+	}
 
-  .tr {
-    border-bottom-color: rgba(0, 0, 0, 0.1);
-  }
+	.tr {
+		border-bottom-color: rgba(0, 0, 0, 0.1);
+	}
 
-  .table.striped .tr:nth-child(even) {
-    background: rgba(0, 0, 0, 0.02);
-  }
+	.table.striped .tr:nth-child(even) {
+		background: rgba(0, 0, 0, 0.02);
+	}
 
-  .table.hoverable .tr:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
+	.table.hoverable .tr:hover {
+		background: rgba(0, 0, 0, 0.05);
+	}
 
-  .table.bordered {
-    .th,
-    .td {
-      border-right-color: rgba(0, 0, 0, 0.1);
-    }
-  }
+	.table.bordered {
+		.th,
+		.td {
+			border-right-color: rgba(0, 0, 0, 0.1);
+		}
+	}
 
-  .empty {
-    color: #6b7280;
-  }
+	.empty {
+		color: #6b7280;
+	}
 }

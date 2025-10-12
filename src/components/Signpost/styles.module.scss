@@ -1,138 +1,137 @@
 .signpost {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .trigger {
-  cursor: pointer;
-  display: inline-flex;
+	cursor: pointer;
+	display: inline-flex;
 }
 
 .content {
-  position: absolute;
-  z-index: 1000;
-  animation: fadeIn 0.2s ease;
+	position: absolute;
+	z-index: 1000;
+	animation: fadeIn 0.2s ease;
 
-  &.top {
-    bottom: calc(100% + 0.5rem);
-    left: 50%;
-    transform: translateX(-50%);
-  }
+	&.top {
+		bottom: calc(100% + 0.5rem);
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
-  &.bottom {
-    top: calc(100% + 0.5rem);
-    left: 50%;
-    transform: translateX(-50%);
-  }
+	&.bottom {
+		top: calc(100% + 0.5rem);
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
-  &.left {
-    right: calc(100% + 0.5rem);
-    top: 50%;
-    transform: translateY(-50%);
-  }
+	&.left {
+		right: calc(100% + 0.5rem);
+		top: 50%;
+		transform: translateY(-50%);
+	}
 
-  &.right {
-    left: calc(100% + 0.5rem);
-    top: 50%;
-    transform: translateY(-50%);
-  }
+	&.right {
+		left: calc(100% + 0.5rem);
+		top: 50%;
+		transform: translateY(-50%);
+	}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
 }
 
 .inner {
-  background: rgba(30, 30, 40, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  color: #e0e0e0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  min-width: 200px;
-  max-width: 300px;
-  font-size: 0.875rem;
-  line-height: 1.5;
+	background: rgba(30, 30, 40, 0.95);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.5rem;
+	padding: 0.75rem 1rem;
+	color: #e0e0e0;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	min-width: 200px;
+	max-width: 300px;
+	font-size: 0.875rem;
+	line-height: 1.5;
 }
 
 .arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
+	position: absolute;
+	width: 0;
+	height: 0;
 
-  .content.top & {
-    bottom: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
-    border-top: 0.5rem solid rgba(30, 30, 40, 0.95);
-    filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.2));
-  }
+	.content.top & {
+		bottom: -0.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		border-left: 0.5rem solid transparent;
+		border-right: 0.5rem solid transparent;
+		border-top: 0.5rem solid rgba(30, 30, 40, 0.95);
+		filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.2));
+	}
 
-  .content.bottom & {
-    top: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid rgba(30, 30, 40, 0.95);
-    filter: drop-shadow(0 -2px 1px rgba(0, 0, 0, 0.2));
-  }
+	.content.bottom & {
+		top: -0.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		border-left: 0.5rem solid transparent;
+		border-right: 0.5rem solid transparent;
+		border-bottom: 0.5rem solid rgba(30, 30, 40, 0.95);
+		filter: drop-shadow(0 -2px 1px rgba(0, 0, 0, 0.2));
+	}
 
-  .content.left & {
-    right: -0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid rgba(30, 30, 40, 0.95);
-    filter: drop-shadow(2px 0 1px rgba(0, 0, 0, 0.2));
-  }
+	.content.left & {
+		right: -0.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 0.5rem solid transparent;
+		border-bottom: 0.5rem solid transparent;
+		border-left: 0.5rem solid rgba(30, 30, 40, 0.95);
+		filter: drop-shadow(2px 0 1px rgba(0, 0, 0, 0.2));
+	}
 
-  .content.right & {
-    left: -0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid transparent;
-    border-right: 0.5rem solid rgba(30, 30, 40, 0.95);
-    filter: drop-shadow(-2px 0 1px rgba(0, 0, 0, 0.2));
-  }
+	.content.right & {
+		left: -0.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 0.5rem solid transparent;
+		border-bottom: 0.5rem solid transparent;
+		border-right: 0.5rem solid rgba(30, 30, 40, 0.95);
+		filter: drop-shadow(-2px 0 1px rgba(0, 0, 0, 0.2));
+	}
 }
 
-
 :global(.light-mode) {
-  .inner {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(0, 0, 0, 0.15);
-    color: #111827;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+	.inner {
+		background: rgba(255, 255, 255, 0.95);
+		border-color: rgba(0, 0, 0, 0.15);
+		color: #111827;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
 
-  .arrow {
-    .content.top & {
-      border-top-color: rgba(255, 255, 255, 0.95);
-    }
+	.arrow {
+		.content.top & {
+			border-top-color: rgba(255, 255, 255, 0.95);
+		}
 
-    .content.bottom & {
-      border-bottom-color: rgba(255, 255, 255, 0.95);
-    }
+		.content.bottom & {
+			border-bottom-color: rgba(255, 255, 255, 0.95);
+		}
 
-    .content.left & {
-      border-left-color: rgba(255, 255, 255, 0.95);
-    }
+		.content.left & {
+			border-left-color: rgba(255, 255, 255, 0.95);
+		}
 
-    .content.right & {
-      border-right-color: rgba(255, 255, 255, 0.95);
-    }
-  }
+		.content.right & {
+			border-right-color: rgba(255, 255, 255, 0.95);
+		}
+	}
 }

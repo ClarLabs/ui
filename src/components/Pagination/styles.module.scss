@@ -1,79 +1,78 @@
 .pagination {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
 }
 
 .pageButton {
-  min-width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  color: #e0e0e0;
-  font-size: 0.95rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
+	min-width: 2.5rem;
+	height: 2.5rem;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.5rem;
+	color: #e0e0e0;
+	font-size: 0.95rem;
+	font-family: inherit;
+	cursor: pointer;
+	transition: all 0.2s ease;
 
-  &:hover:not(:disabled):not(.active) {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.3);
-  }
+	&:hover:not(:disabled):not(.active) {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.3);
+	}
 
-  &:active:not(:disabled) {
-    transform: scale(0.95);
-  }
+	&:active:not(:disabled) {
+		transform: scale(0.95);
+	}
 
-  &.active {
-    background: rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.4);
-    color: #c7d2fe;
-    font-weight: 600;
-  }
+	&.active {
+		background: rgba(99, 102, 241, 0.2);
+		border-color: rgba(99, 102, 241, 0.4);
+		color: #c7d2fe;
+		font-weight: 600;
+	}
 
-  &:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
 }
 
 .dots {
-  min-width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-size: 0.95rem;
+	min-width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #9ca3af;
+	font-size: 0.95rem;
 }
 
-
 :global(.light-mode) {
-  .pageButton {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba(0, 0, 0, 0.2);
-    color: #111827;
+	.pageButton {
+		background: rgba(255, 255, 255, 0.7);
+		border-color: rgba(0, 0, 0, 0.2);
+		color: #111827;
 
-    &:hover:not(:disabled):not(.active) {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(0, 0, 0, 0.3);
-    }
+		&:hover:not(:disabled):not(.active) {
+			background: rgba(255, 255, 255, 0.9);
+			border-color: rgba(0, 0, 0, 0.3);
+		}
 
-    &.active {
-      background: rgba(99, 102, 241, 0.15);
-      border-color: rgba(99, 102, 241, 0.4);
-      color: #4338ca;
-    }
-  }
+		&.active {
+			background: rgba(99, 102, 241, 0.15);
+			border-color: rgba(99, 102, 241, 0.4);
+			color: #4338ca;
+		}
+	}
 
-  .dots {
-    color: #6b7280;
-  }
+	.dots {
+		color: #6b7280;
+	}
 }

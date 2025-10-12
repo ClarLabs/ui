@@ -25,22 +25,18 @@ pnpm add @clarlabs/ui
 ### Basic Example
 
 ```tsx
-import { Button, Input } from '@clarlabs/ui';
+import { Button, Input } from '@clarlabs/ui'
 
 function App() {
-  return (
-    <div>
-      <Button variant="primary" size="md">
-        Click me
-      </Button>
+	return (
+		<div>
+			<Button variant="primary" size="md">
+				Click me
+			</Button>
 
-      <Input
-        label="Email"
-        type="email"
-        placeholder="Enter your email"
-      />
-    </div>
-  );
+			<Input label="Email" type="email" placeholder="Enter your email" />
+		</div>
+	)
 }
 ```
 
@@ -60,24 +56,24 @@ A versatile button component with multiple variants and sizes.
 **Example:**
 
 ```tsx
-import { Button } from '@clarlabs/ui';
+import { Button } from '@clarlabs/ui'
 
 function Example() {
-  return (
-    <>
-      <Button variant="primary" size="lg">
-        Primary Button
-      </Button>
+	return (
+		<>
+			<Button variant="primary" size="lg">
+				Primary Button
+			</Button>
 
-      <Button variant="outline" size="sm" onClick={() => console.log('clicked')}>
-        Small Outline
-      </Button>
+			<Button variant="outline" size="sm" onClick={() => console.log('clicked')}>
+				Small Outline
+			</Button>
 
-      <Button variant="ghost" disabled>
-        Disabled Ghost
-      </Button>
-    </>
-  );
+			<Button variant="ghost" disabled>
+				Disabled Ghost
+			</Button>
+		</>
+	)
 }
 ```
 
@@ -96,30 +92,25 @@ A flexible input component with label, error, and helper text support.
 **Example:**
 
 ```tsx
-import { Input } from '@clarlabs/ui';
+import { Input } from '@clarlabs/ui'
 
 function Example() {
-  const [value, setValue] = useState('');
-  const [error, setError] = useState('');
+	const [value, setValue] = useState('')
+	const [error, setError] = useState('')
 
-  return (
-    <>
-      <Input
-        label="Username"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Enter username"
-        helperText="Choose a unique username"
-      />
+	return (
+		<>
+			<Input
+				label="Username"
+				value={value}
+				onChange={(e) => setValue(e.target.value)}
+				placeholder="Enter username"
+				helperText="Choose a unique username"
+			/>
 
-      <Input
-        label="Email"
-        type="email"
-        error={error}
-        fullWidth
-      />
-    </>
-  );
+			<Input label="Email" type="email" error={error} fullWidth />
+		</>
+	)
 }
 ```
 

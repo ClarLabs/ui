@@ -1,158 +1,157 @@
 .stepper {
-  display: flex;
-  align-items: flex-start;
+	display: flex;
+	align-items: flex-start;
 }
 
 .stepper.horizontal {
-  flex-direction: row;
-  align-items: center;
+	flex-direction: row;
+	align-items: center;
 }
 
 .stepper.vertical {
-  flex-direction: column;
-  align-items: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .step {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  position: relative;
-  flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	position: relative;
+	flex-shrink: 0;
 }
 
 .step.clickable {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .stepIndicator {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background: rgba(60, 60, 70, 0.95);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background: rgba(60, 60, 70, 0.95);
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #9ca3af;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	flex-shrink: 0;
 }
 
 .step.current .stepIndicator {
-  background: rgba(59, 130, 246, 0.2);
-  border-color: #3b82f6;
-  color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+	background: rgba(59, 130, 246, 0.2);
+	border-color: #3b82f6;
+	color: #3b82f6;
+	box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
 .step.completed .stepIndicator {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: #10b981;
-  color: #10b981;
+	background: rgba(16, 185, 129, 0.2);
+	border-color: #10b981;
+	color: #10b981;
 }
 
 .checkmark {
-  font-size: 1.25rem;
-  line-height: 1;
+	font-size: 1.25rem;
+	line-height: 1;
 }
 
 .stepNumber {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 .stepContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
 }
 
 .stepLabel {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #e0e0e0;
-  transition: color 0.3s ease;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #e0e0e0;
+	transition: color 0.3s ease;
 }
 
 .step.current .stepLabel {
-  color: #3b82f6;
+	color: #3b82f6;
 }
 
 .step.completed .stepLabel {
-  color: #10b981;
+	color: #10b981;
 }
 
 .stepDescription {
-  font-size: 0.75rem;
-  color: #9ca3af;
+	font-size: 0.75rem;
+	color: #9ca3af;
 }
 
 .connector {
-  flex: 1;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease;
-  margin: 0 0.5rem;
+	flex: 1;
+	height: 2px;
+	background: rgba(255, 255, 255, 0.2);
+	transition: background 0.3s ease;
+	margin: 0 0.5rem;
 }
 
 .stepper.horizontal .connector {
-  min-width: 2rem;
+	min-width: 2rem;
 }
 
 .stepper.vertical .connector {
-  width: 2px;
-  height: 2rem;
-  margin: 0.5rem 0 0.5rem 1.2rem;
+	width: 2px;
+	height: 2rem;
+	margin: 0.5rem 0 0.5rem 1.2rem;
 }
 
 .connector.completed {
-  background: #10b981;
+	background: #10b981;
 }
 
-
 :global(.light-mode) {
-  .stepIndicator {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(0, 0, 0, 0.15);
-    color: #6b7280;
-  }
+	.stepIndicator {
+		background: rgba(255, 255, 255, 0.95);
+		border-color: rgba(0, 0, 0, 0.15);
+		color: #6b7280;
+	}
 
-  .step.current .stepIndicator {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: #3b82f6;
-    color: #3b82f6;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.05);
-  }
+	.step.current .stepIndicator {
+		background: rgba(59, 130, 246, 0.1);
+		border-color: #3b82f6;
+		color: #3b82f6;
+		box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.05);
+	}
 
-  .step.completed .stepIndicator {
-    background: rgba(16, 185, 129, 0.1);
-    border-color: #10b981;
-    color: #10b981;
-  }
+	.step.completed .stepIndicator {
+		background: rgba(16, 185, 129, 0.1);
+		border-color: #10b981;
+		color: #10b981;
+	}
 
-  .stepLabel {
-    color: #111827;
-  }
+	.stepLabel {
+		color: #111827;
+	}
 
-  .step.current .stepLabel {
-    color: #3b82f6;
-  }
+	.step.current .stepLabel {
+		color: #3b82f6;
+	}
 
-  .step.completed .stepLabel {
-    color: #10b981;
-  }
+	.step.completed .stepLabel {
+		color: #10b981;
+	}
 
-  .stepDescription {
-    color: #6b7280;
-  }
+	.stepDescription {
+		color: #6b7280;
+	}
 
-  .connector {
-    background: rgba(0, 0, 0, 0.1);
-  }
+	.connector {
+		background: rgba(0, 0, 0, 0.1);
+	}
 
-  .connector.completed {
-    background: #10b981;
-  }
+	.connector.completed {
+		background: #10b981;
+	}
 }

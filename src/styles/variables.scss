@@ -61,12 +61,12 @@ $z-tooltip: 3000;
 
 // CSS Variables for runtime theming
 :root {
-  --font-family: #{$font-family};
-  --background: #1a1a1a;
-  --text-color: #{$dark-text};
-  --text-secondary: #{$dark-text-secondary};
-  --border-color: #{$dark-border};
-  --card-background: rgba(30, 30, 40, 0.8);
-  --input-background: rgba(40, 40, 50, 0.8);
-  --input-border: rgba(255, 255, 255, 0.1);
+	--font-family: #{$font-family};
+	--background: #1a1a1a;
+	--text-color: #{$dark-text};
+	--text-secondary: #{$dark-text-secondary};
+	--border-color: #{$dark-border};
+	--card-background: rgba(30, 30, 40, 0.8);
+	--input-background: rgba(40, 40, 50, 0.8);
+	--input-border: rgba(255, 255, 255, 0.1);
 }

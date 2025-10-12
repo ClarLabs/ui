@@ -1,127 +1,126 @@
 .checkboxWrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
 }
 
 .checkbox {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
 
-  &:focus-visible + .checkmark {
-    outline: 2px solid rgba(99, 102, 241, 0.5);
-    outline-offset: 2px;
-  }
+	&:focus-visible + .checkmark {
+		outline: 2px solid rgba(99, 102, 241, 0.5);
+		outline-offset: 2px;
+	}
 
-  &:disabled {
-    & + .checkmark {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+	&:disabled {
+		& + .checkmark {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
 
-    & ~ .label {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
+		& ~ .label {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+	}
 
-  &:checked + .checkmark {
-    background: rgba(99, 102, 241, 0.3);
-    border-color: rgba(99, 102, 241, 0.5);
+	&:checked + .checkmark {
+		background: rgba(99, 102, 241, 0.3);
+		border-color: rgba(99, 102, 241, 0.5);
 
-    .checkIcon {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+		.checkIcon {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
 
-  &:indeterminate + .checkmark {
-    background: rgba(99, 102, 241, 0.3);
-    border-color: rgba(99, 102, 241, 0.5);
+	&:indeterminate + .checkmark {
+		background: rgba(99, 102, 241, 0.3);
+		border-color: rgba(99, 102, 241, 0.5);
 
-    .indeterminateIcon {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+		.indeterminateIcon {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
 }
 
 .checkmark {
-  position: relative;
-  width: 1.25rem;
-  height: 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.25rem;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	width: 1.25rem;
+	height: 1.25rem;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0.25rem;
+	transition: all 0.2s ease;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-  }
+	&:hover {
+		border-color: rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.08);
+	}
 }
 
 .checkIcon,
 .indeterminateIcon {
-  color: #c7d2fe;
-  font-size: 0.875rem;
-  font-weight: bold;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.2s ease;
+	color: #c7d2fe;
+	font-size: 0.875rem;
+	font-weight: bold;
+	opacity: 0;
+	transform: scale(0.5);
+	transition: all 0.2s ease;
 }
 
 .indeterminateIcon {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 .label {
-  color: #e0e0e0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  cursor: pointer;
+	color: #e0e0e0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+	cursor: pointer;
 }
 
-
 :global(.light-mode) {
-  .checkmark {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba(0, 0, 0, 0.2);
+	.checkmark {
+		background: rgba(255, 255, 255, 0.7);
+		border-color: rgba(0, 0, 0, 0.2);
 
-    &:hover {
-      border-color: rgba(0, 0, 0, 0.3);
-      background: rgba(255, 255, 255, 0.9);
-    }
-  }
+		&:hover {
+			border-color: rgba(0, 0, 0, 0.3);
+			background: rgba(255, 255, 255, 0.9);
+		}
+	}
 
-  .checkbox {
-    &:checked + .checkmark {
-      background: rgba(99, 102, 241, 0.2);
-      border-color: rgba(99, 102, 241, 0.5);
-    }
+	.checkbox {
+		&:checked + .checkmark {
+			background: rgba(99, 102, 241, 0.2);
+			border-color: rgba(99, 102, 241, 0.5);
+		}
 
-    &:indeterminate + .checkmark {
-      background: rgba(99, 102, 241, 0.2);
-      border-color: rgba(99, 102, 241, 0.5);
-    }
-  }
+		&:indeterminate + .checkmark {
+			background: rgba(99, 102, 241, 0.2);
+			border-color: rgba(99, 102, 241, 0.5);
+		}
+	}
 
-  .checkIcon,
-  .indeterminateIcon {
-    color: #4338ca;
-  }
+	.checkIcon,
+	.indeterminateIcon {
+		color: #4338ca;
+	}
 
-  .label {
-    color: #111827;
-  }
+	.label {
+		color: #111827;
+	}
 }
