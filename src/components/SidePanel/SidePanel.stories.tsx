@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { SidePanel } from './index'
+import React from 'react'
 import { Button } from '../Button'
 import { useState } from 'react'
 
