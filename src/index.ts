@@ -189,3 +189,6 @@ export type { HeroAlignment, HeroProps, HeroSize, HeroVariant } from './componen
 
 export { Footer } from './components/Footer'
 export type { FooterLink, FooterProps, FooterSection, FooterVariant, SocialLink } from './components/Footer'
+
+export { Title } from './components/Title'
+export type { TitleProps } from './components/Title'
