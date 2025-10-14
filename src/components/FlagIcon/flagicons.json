@@ -1,0 +1,1359 @@
+{
+	"icons": {
+		"af": {
+			"name": "Afghanistan",
+			"translation": "Afghanistan",
+			"body": "./svg/af.svg"
+		},
+		"ax": {
+			"name": "Aland Islands",
+			"translation": "Aland Islands",
+			"body": "./svg/ax.svg"
+		},
+		"al": {
+			"name": "Albania",
+			"translation": "Albania",
+			"body": "./svg/al.svg"
+		},
+		"dz": {
+			"name": "Algeria",
+			"translation": "Algeria",
+			"body": "./svg/dz.svg"
+		},
+		"as": {
+			"name": "American Samoa",
+			"translation": "American Samoa",
+			"body": "./svg/as.svg"
+		},
+		"ad": {
+			"name": "Andorra",
+			"translation": "Andorra",
+			"body": "./svg/ad.svg"
+		},
+		"ao": {
+			"name": "Angola",
+			"translation": "Angola",
+			"body": "./svg/ao.svg"
+		},
+		"ai": {
+			"name": "Anguilla",
+			"translation": "Anguilla",
+			"body": "./svg/ai.svg"
+		},
+		"aq": {
+			"name": "Antarctica",
+			"translation": "Antarctica",
+			"body": "./svg/aq.svg"
+		},
+		"ag": {
+			"name": "Antigua and Barbuda",
+			"translation": "Antigua and Barbuda",
+			"body": "./svg/ag.svg"
+		},
+		"ar": {
+			"name": "Argentina",
+			"translation": "Argentina",
+			"body": "./svg/ar.svg"
+		},
+		"am": {
+			"name": "Armenia",
+			"translation": "Armenia",
+			"body": "./svg/am.svg"
+		},
+		"aw": {
+			"name": "Aruba",
+			"translation": "Aruba",
+			"body": "./svg/aw.svg"
+		},
+		"sh-ac": {
+			"name": "Ascension Island",
+			"translation": "Ascension Island",
+			"body": "./svg/sh-ac.svg"
+		},
+		"asean": {
+			"name": "Association of Southeast Asian Nations",
+			"translation": "Association of Southeast Asian Nations",
+			"body": "./svg/asean.svg"
+		},
+		"au": {
+			"name": "Australia",
+			"translation": "Australia",
+			"body": "./svg/au.svg"
+		},
+		"at": {
+			"name": "Austria",
+			"translation": "Austria",
+			"body": "./svg/at.svg"
+		},
+		"az": {
+			"name": "Azerbaijan",
+			"translation": "Azerbaijan",
+			"body": "./svg/az.svg"
+		},
+		"bs": {
+			"name": "Bahamas",
+			"translation": "Bahamas",
+			"body": "./svg/bs.svg"
+		},
+		"bh": {
+			"name": "Bahrain",
+			"translation": "Bahrain",
+			"body": "./svg/bh.svg"
+		},
+		"bd": {
+			"name": "Bangladesh",
+			"translation": "Bangladesh",
+			"body": "./svg/bd.svg"
+		},
+		"bb": {
+			"name": "Barbados",
+			"translation": "Barbados",
+			"body": "./svg/bb.svg"
+		},
+		"es-pv": {
+			"name": "Basque Country",
+			"translation": "Basque Country",
+			"body": "./svg/es-pv.svg"
+		},
+		"by": {
+			"name": "Belarus",
+			"translation": "Belarus",
+			"body": "./svg/by.svg"
+		},
+		"be": {
+			"name": "Belgium",
+			"translation": "Belgium",
+			"body": "./svg/be.svg"
+		},
+		"bz": {
+			"name": "Belize",
+			"translation": "Belize",
+			"body": "./svg/bz.svg"
+		},
+		"bj": {
+			"name": "Benin",
+			"translation": "Benin",
+			"body": "./svg/bj.svg"
+		},
+		"bm": {
+			"name": "Bermuda",
+			"translation": "Bermuda",
+			"body": "./svg/bm.svg"
+		},
+		"bt": {
+			"name": "Bhutan",
+			"translation": "Bhutan",
+			"body": "./svg/bt.svg"
+		},
+		"bo": {
+			"name": "Bolivia",
+			"translation": "Bolivia",
+			"body": "./svg/bo.svg"
+		},
+		"bq": {
+			"name": "Bonaire, Sint Eustatius and Saba",
+			"translation": "Bonaire, Sint Eustatius and Saba",
+			"body": "./svg/bq.svg"
+		},
+		"ba": {
+			"name": "Bosnia and Herzegovina",
+			"translation": "Bosnia and Herzegovina",
+			"body": "./svg/ba.svg"
+		},
+		"bw": {
+			"name": "Botswana",
+			"translation": "Botswana",
+			"body": "./svg/bw.svg"
+		},
+		"bv": {
+			"name": "Bouvet Island",
+			"translation": "Bouvet Island",
+			"body": "./svg/bv.svg"
+		},
+		"br": {
+			"name": "Brazil",
+			"translation": "Brazil",
+			"body": "./svg/br.svg"
+		},
+		"io": {
+			"name": "British Indian Ocean Territory",
+			"translation": "British Indian Ocean Territory",
+			"body": "./svg/io.svg"
+		},
+		"bn": {
+			"name": "Brunei Darussalam",
+			"translation": "Brunei Darussalam",
+			"body": "./svg/bn.svg"
+		},
+		"bg": {
+			"name": "Bulgaria",
+			"translation": "Bulgaria",
+			"body": "./svg/bg.svg"
+		},
+		"bf": {
+			"name": "Burkina Faso",
+			"translation": "Burkina Faso",
+			"body": "./svg/bf.svg"
+		},
+		"bi": {
+			"name": "Burundi",
+			"translation": "Burundi",
+			"body": "./svg/bi.svg"
+		},
+		"cv": {
+			"name": "Cabo Verde",
+			"translation": "Cabo Verde",
+			"body": "./svg/cv.svg"
+		},
+		"kh": {
+			"name": "Cambodia",
+			"translation": "Cambodia",
+			"body": "./svg/kh.svg"
+		},
+		"cm": {
+			"name": "Cameroon",
+			"translation": "Cameroon",
+			"body": "./svg/cm.svg"
+		},
+		"ca": {
+			"name": "Canada",
+			"translation": "Canada",
+			"body": "./svg/ca.svg"
+		},
+		"ic": {
+			"name": "Canary Islands",
+			"translation": "Canary Islands",
+			"body": "./svg/ic.svg"
+		},
+		"es-ct": {
+			"name": "Catalonia",
+			"translation": "Catalonia",
+			"body": "./svg/es-ct.svg"
+		},
+		"ky": {
+			"name": "Cayman Islands",
+			"translation": "Cayman Islands",
+			"body": "./svg/ky.svg"
+		},
+		"cf": {
+			"name": "Central African Republic",
+			"translation": "Central African Republic",
+			"body": "./svg/cf.svg"
+		},
+		"cefta": {
+			"name": "Central European Free Trade Agreement",
+			"translation": "Central European Free Trade Agreement",
+			"body": "./svg/cefta.svg"
+		},
+		"td": {
+			"name": "Chad",
+			"translation": "Chad",
+			"body": "./svg/td.svg"
+		},
+		"cl": {
+			"name": "Chile",
+			"translation": "Chile",
+			"body": "./svg/cl.svg"
+		},
+		"cn": {
+			"name": "China",
+			"translation": "China",
+			"body": "./svg/cn.svg"
+		},
+		"cx": {
+			"name": "Christmas Island",
+			"translation": "Christmas Island",
+			"body": "./svg/cx.svg"
+		},
+		"cp": {
+			"name": "Clipperton Island",
+			"translation": "Clipperton Island",
+			"body": "./svg/cp.svg"
+		},
+		"cc": {
+			"name": "Cocos (Keeling) Islands",
+			"translation": "Cocos (Keeling) Islands",
+			"body": "./svg/cc.svg"
+		},
+		"co": {
+			"name": "Colombia",
+			"translation": "Colombia",
+			"body": "./svg/co.svg"
+		},
+		"km": {
+			"name": "Comoros",
+			"translation": "Comoros",
+			"body": "./svg/km.svg"
+		},
+		"ck": {
+			"name": "Cook Islands",
+			"translation": "Cook Islands",
+			"body": "./svg/ck.svg"
+		},
+		"cr": {
+			"name": "Costa Rica",
+			"translation": "Costa Rica",
+			"body": "./svg/cr.svg"
+		},
+		"hr": {
+			"name": "Croatia",
+			"translation": "Croatia",
+			"body": "./svg/hr.svg"
+		},
+		"cu": {
+			"name": "Cuba",
+			"translation": "Cuba",
+			"body": "./svg/cu.svg"
+		},
+		"cw": {
+			"name": "Curaçao",
+			"translation": "Curaçao",
+			"body": "./svg/cw.svg"
+		},
+		"cy": {
+			"name": "Cyprus",
+			"translation": "Cyprus",
+			"body": "./svg/cy.svg"
+		},
+		"cz": {
+			"name": "Czech Republic",
+			"translation": "Czech Republic",
+			"body": "./svg/cz.svg"
+		},
+		"ci": {
+			"name": "Côte d'Ivoire",
+			"translation": "Côte d'Ivoire",
+			"body": "./svg/ci.svg"
+		},
+		"cd": {
+			"name": "Democratic Republic of the Congo",
+			"translation": "Democratic Republic of the Congo",
+			"body": "./svg/cd.svg"
+		},
+		"dk": {
+			"name": "Denmark",
+			"translation": "Denmark",
+			"body": "./svg/dk.svg"
+		},
+		"dg": {
+			"name": "Diego Garcia",
+			"translation": "Diego Garcia",
+			"body": "./svg/dg.svg"
+		},
+		"dj": {
+			"name": "Djibouti",
+			"translation": "Djibouti",
+			"body": "./svg/dj.svg"
+		},
+		"dm": {
+			"name": "Dominica",
+			"translation": "Dominica",
+			"body": "./svg/dm.svg"
+		},
+		"do": {
+			"name": "Dominican Republic",
+			"translation": "Dominican Republic",
+			"body": "./svg/do.svg"
+		},
+		"eac": {
+			"name": "East African Community",
+			"translation": "East African Community",
+			"body": "./svg/eac.svg"
+		},
+		"ec": {
+			"name": "Ecuador",
+			"translation": "Ecuador",
+			"body": "./svg/ec.svg"
+		},
+		"eg": {
+			"name": "Egypt",
+			"translation": "Egypt",
+			"body": "./svg/eg.svg"
+		},
+		"sv": {
+			"name": "El Salvador",
+			"translation": "El Salvador",
+			"body": "./svg/sv.svg"
+		},
+		"gb-eng": {
+			"name": "England",
+			"translation": "England",
+			"body": "./svg/gb-eng.svg"
+		},
+		"gq": {
+			"name": "Equatorial Guinea",
+			"translation": "Equatorial Guinea",
+			"body": "./svg/gq.svg"
+		},
+		"er": {
+			"name": "Eritrea",
+			"translation": "Eritrea",
+			"body": "./svg/er.svg"
+		},
+		"ee": {
+			"name": "Estonia",
+			"translation": "Estonia",
+			"body": "./svg/ee.svg"
+		},
+		"sz": {
+			"name": "Eswatini",
+			"translation": "Eswatini",
+			"body": "./svg/sz.svg"
+		},
+		"et": {
+			"name": "Ethiopia",
+			"translation": "Ethiopia",
+			"body": "./svg/et.svg"
+		},
+		"eu": {
+			"name": "Europe",
+			"translation": "Europe",
+			"body": "./svg/eu.svg"
+		},
+		"fk": {
+			"name": "Falkland Islands",
+			"translation": "Falkland Islands",
+			"body": "./svg/fk.svg"
+		},
+		"fo": {
+			"name": "Faroe Islands",
+			"translation": "Faroe Islands",
+			"body": "./svg/fo.svg"
+		},
+		"fm": {
+			"name": "Federated States of Micronesia",
+			"translation": "Federated States of Micronesia",
+			"body": "./svg/fm.svg"
+		},
+		"fj": {
+			"name": "Fiji",
+			"translation": "Fiji",
+			"body": "./svg/fj.svg"
+		},
+		"fi": {
+			"name": "Finland",
+			"translation": "Finland",
+			"body": "./svg/fi.svg"
+		},
+		"fr": {
+			"name": "France",
+			"translation": "France",
+			"body": "./svg/fr.svg"
+		},
+		"gf": {
+			"name": "French Guiana",
+			"translation": "French Guiana",
+			"body": "./svg/gf.svg"
+		},
+		"pf": {
+			"name": "French Polynesia",
+			"translation": "French Polynesia",
+			"body": "./svg/pf.svg"
+		},
+		"tf": {
+			"name": "French Southern Territories",
+			"translation": "French Southern Territories",
+			"body": "./svg/tf.svg"
+		},
+		"ga": {
+			"name": "Gabon",
+			"translation": "Gabon",
+			"body": "./svg/ga.svg"
+		},
+		"es-ga": {
+			"name": "Galicia",
+			"translation": "Galicia",
+			"body": "./svg/es-ga.svg"
+		},
+		"gm": {
+			"name": "Gambia",
+			"translation": "Gambia",
+			"body": "./svg/gm.svg"
+		},
+		"ge": {
+			"name": "Georgia",
+			"translation": "Georgia",
+			"body": "./svg/ge.svg"
+		},
+		"de": {
+			"name": "Germany",
+			"translation": "Germany",
+			"body": "./svg/de.svg"
+		},
+		"gh": {
+			"name": "Ghana",
+			"translation": "Ghana",
+			"body": "./svg/gh.svg"
+		},
+		"gi": {
+			"name": "Gibraltar",
+			"translation": "Gibraltar",
+			"body": "./svg/gi.svg"
+		},
+		"gr": {
+			"name": "Greece",
+			"translation": "Greece",
+			"body": "./svg/gr.svg"
+		},
+		"gl": {
+			"name": "Greenland",
+			"translation": "Greenland",
+			"body": "./svg/gl.svg"
+		},
+		"gd": {
+			"name": "Grenada",
+			"translation": "Grenada",
+			"body": "./svg/gd.svg"
+		},
+		"gp": {
+			"name": "Guadeloupe",
+			"translation": "Guadeloupe",
+			"body": "./svg/gp.svg"
+		},
+		"gu": {
+			"name": "Guam",
+			"translation": "Guam",
+			"body": "./svg/gu.svg"
+		},
+		"gt": {
+			"name": "Guatemala",
+			"translation": "Guatemala",
+			"body": "./svg/gt.svg"
+		},
+		"gg": {
+			"name": "Guernsey",
+			"translation": "Guernsey",
+			"body": "./svg/gg.svg"
+		},
+		"gn": {
+			"name": "Guinea",
+			"translation": "Guinea",
+			"body": "./svg/gn.svg"
+		},
+		"gw": {
+			"name": "Guinea-Bissau",
+			"translation": "Guinea-Bissau",
+			"body": "./svg/gw.svg"
+		},
+		"gy": {
+			"name": "Guyana",
+			"translation": "Guyana",
+			"body": "./svg/gy.svg"
+		},
+		"ht": {
+			"name": "Haiti",
+			"translation": "Haiti",
+			"body": "./svg/ht.svg"
+		},
+		"hm": {
+			"name": "Heard Island and McDonald Islands",
+			"translation": "Heard Island and McDonald Islands",
+			"body": "./svg/hm.svg"
+		},
+		"va": {
+			"name": "Holy See",
+			"translation": "Holy See",
+			"body": "./svg/va.svg"
+		},
+		"hn": {
+			"name": "Honduras",
+			"translation": "Honduras",
+			"body": "./svg/hn.svg"
+		},
+		"hk": {
+			"name": "Hong Kong",
+			"translation": "Hong Kong",
+			"body": "./svg/hk.svg"
+		},
+		"hu": {
+			"name": "Hungary",
+			"translation": "Hungary",
+			"body": "./svg/hu.svg"
+		},
+		"is": {
+			"name": "Iceland",
+			"translation": "Iceland",
+			"body": "./svg/is.svg"
+		},
+		"in": {
+			"name": "India",
+			"translation": "India",
+			"body": "./svg/in.svg"
+		},
+		"id": {
+			"name": "Indonesia",
+			"translation": "Indonesia",
+			"body": "./svg/id.svg"
+		},
+		"ir": {
+			"name": "Iran",
+			"translation": "Iran",
+			"body": "./svg/ir.svg"
+		},
+		"iq": {
+			"name": "Iraq",
+			"translation": "Iraq",
+			"body": "./svg/iq.svg"
+		},
+		"ie": {
+			"name": "Ireland",
+			"translation": "Ireland",
+			"body": "./svg/ie.svg"
+		},
+		"im": {
+			"name": "Isle of Man",
+			"translation": "Isle of Man",
+			"body": "./svg/im.svg"
+		},
+		"il": {
+			"name": "Israel",
+			"translation": "Israel",
+			"body": "./svg/il.svg"
+		},
+		"it": {
+			"name": "Italy",
+			"translation": "Italy",
+			"body": "./svg/it.svg"
+		},
+		"jm": {
+			"name": "Jamaica",
+			"translation": "Jamaica",
+			"body": "./svg/jm.svg"
+		},
+		"jp": {
+			"name": "Japan",
+			"translation": "Japan",
+			"body": "./svg/jp.svg"
+		},
+		"je": {
+			"name": "Jersey",
+			"translation": "Jersey",
+			"body": "./svg/je.svg"
+		},
+		"jo": {
+			"name": "Jordan",
+			"translation": "Jordan",
+			"body": "./svg/jo.svg"
+		},
+		"kz": {
+			"name": "Kazakhstan",
+			"translation": "Kazakhstan",
+			"body": "./svg/kz.svg"
+		},
+		"ke": {
+			"name": "Kenya",
+			"translation": "Kenya",
+			"body": "./svg/ke.svg"
+		},
+		"ki": {
+			"name": "Kiribati",
+			"translation": "Kiribati",
+			"body": "./svg/ki.svg"
+		},
+		"xk": {
+			"name": "Kosovo",
+			"translation": "Kosovo",
+			"body": "./svg/xk.svg"
+		},
+		"kw": {
+			"name": "Kuwait",
+			"translation": "Kuwait",
+			"body": "./svg/kw.svg"
+		},
+		"kg": {
+			"name": "Kyrgyzstan",
+			"translation": "Kyrgyzstan",
+			"body": "./svg/kg.svg"
+		},
+		"la": {
+			"name": "Laos",
+			"translation": "Laos",
+			"body": "./svg/la.svg"
+		},
+		"lv": {
+			"name": "Latvia",
+			"translation": "Latvia",
+			"body": "./svg/lv.svg"
+		},
+		"arab": {
+			"name": "League of Arab States",
+			"translation": "League of Arab States",
+			"body": "./svg/arab.svg"
+		},
+		"lb": {
+			"name": "Lebanon",
+			"translation": "Lebanon",
+			"body": "./svg/lb.svg"
+		},
+		"ls": {
+			"name": "Lesotho",
+			"translation": "Lesotho",
+			"body": "./svg/ls.svg"
+		},
+		"lr": {
+			"name": "Liberia",
+			"translation": "Liberia",
+			"body": "./svg/lr.svg"
+		},
+		"ly": {
+			"name": "Libya",
+			"translation": "Libya",
+			"body": "./svg/ly.svg"
+		},
+		"li": {
+			"name": "Liechtenstein",
+			"translation": "Liechtenstein",
+			"body": "./svg/li.svg"
+		},
+		"lt": {
+			"name": "Lithuania",
+			"translation": "Lithuania",
+			"body": "./svg/lt.svg"
+		},
+		"lu": {
+			"name": "Luxembourg",
+			"translation": "Luxembourg",
+			"body": "./svg/lu.svg"
+		},
+		"mo": {
+			"name": "Macau",
+			"translation": "Macau",
+			"body": "./svg/mo.svg"
+		},
+		"mg": {
+			"name": "Madagascar",
+			"translation": "Madagascar",
+			"body": "./svg/mg.svg"
+		},
+		"mw": {
+			"name": "Malawi",
+			"translation": "Malawi",
+			"body": "./svg/mw.svg"
+		},
+		"my": {
+			"name": "Malaysia",
+			"translation": "Malaysia",
+			"body": "./svg/my.svg"
+		},
+		"mv": {
+			"name": "Maldives",
+			"translation": "Maldives",
+			"body": "./svg/mv.svg"
+		},
+		"ml": {
+			"name": "Mali",
+			"translation": "Mali",
+			"body": "./svg/ml.svg"
+		},
+		"mt": {
+			"name": "Malta",
+			"translation": "Malta",
+			"body": "./svg/mt.svg"
+		},
+		"mh": {
+			"name": "Marshall Islands",
+			"translation": "Marshall Islands",
+			"body": "./svg/mh.svg"
+		},
+		"mq": {
+			"name": "Martinique",
+			"translation": "Martinique",
+			"body": "./svg/mq.svg"
+		},
+		"mr": {
+			"name": "Mauritania",
+			"translation": "Mauritania",
+			"body": "./svg/mr.svg"
+		},
+		"mu": {
+			"name": "Mauritius",
+			"translation": "Mauritius",
+			"body": "./svg/mu.svg"
+		},
+		"yt": {
+			"name": "Mayotte",
+			"translation": "Mayotte",
+			"body": "./svg/yt.svg"
+		},
+		"mx": {
+			"name": "Mexico",
+			"translation": "Mexico",
+			"body": "./svg/mx.svg"
+		},
+		"md": {
+			"name": "Moldova",
+			"translation": "Moldova",
+			"body": "./svg/md.svg"
+		},
+		"mc": {
+			"name": "Monaco",
+			"translation": "Monaco",
+			"body": "./svg/mc.svg"
+		},
+		"mn": {
+			"name": "Mongolia",
+			"translation": "Mongolia",
+			"body": "./svg/mn.svg"
+		},
+		"me": {
+			"name": "Montenegro",
+			"translation": "Montenegro",
+			"body": "./svg/me.svg"
+		},
+		"ms": {
+			"name": "Montserrat",
+			"translation": "Montserrat",
+			"body": "./svg/ms.svg"
+		},
+		"ma": {
+			"name": "Morocco",
+			"translation": "Morocco",
+			"body": "./svg/ma.svg"
+		},
+		"mz": {
+			"name": "Mozambique",
+			"translation": "Mozambique",
+			"body": "./svg/mz.svg"
+		},
+		"mm": {
+			"name": "Myanmar",
+			"translation": "Myanmar",
+			"body": "./svg/mm.svg"
+		},
+		"na": {
+			"name": "Namibia",
+			"translation": "Namibia",
+			"body": "./svg/na.svg"
+		},
+		"nr": {
+			"name": "Nauru",
+			"translation": "Nauru",
+			"body": "./svg/nr.svg"
+		},
+		"np": {
+			"name": "Nepal",
+			"translation": "Nepal",
+			"body": "./svg/np.svg"
+		},
+		"nl": {
+			"name": "Netherlands",
+			"translation": "Netherlands",
+			"body": "./svg/nl.svg"
+		},
+		"nc": {
+			"name": "New Caledonia",
+			"translation": "New Caledonia",
+			"body": "./svg/nc.svg"
+		},
+		"nz": {
+			"name": "New Zealand",
+			"translation": "New Zealand",
+			"body": "./svg/nz.svg"
+		},
+		"ni": {
+			"name": "Nicaragua",
+			"translation": "Nicaragua",
+			"body": "./svg/ni.svg"
+		},
+		"ne": {
+			"name": "Niger",
+			"translation": "Niger",
+			"body": "./svg/ne.svg"
+		},
+		"ng": {
+			"name": "Nigeria",
+			"translation": "Nigeria",
+			"body": "./svg/ng.svg"
+		},
+		"nu": {
+			"name": "Niue",
+			"translation": "Niue",
+			"body": "./svg/nu.svg"
+		},
+		"nf": {
+			"name": "Norfolk Island",
+			"translation": "Norfolk Island",
+			"body": "./svg/nf.svg"
+		},
+		"kp": {
+			"name": "North Korea",
+			"translation": "North Korea",
+			"body": "./svg/kp.svg"
+		},
+		"mk": {
+			"name": "North Macedonia",
+			"translation": "North Macedonia",
+			"body": "./svg/mk.svg"
+		},
+		"gb-nir": {
+			"name": "Northern Ireland",
+			"translation": "Northern Ireland",
+			"body": "./svg/gb-nir.svg"
+		},
+		"mp": {
+			"name": "Northern Mariana Islands",
+			"translation": "Northern Mariana Islands",
+			"body": "./svg/mp.svg"
+		},
+		"no": {
+			"name": "Norway",
+			"translation": "Norway",
+			"body": "./svg/no.svg"
+		},
+		"om": {
+			"name": "Oman",
+			"translation": "Oman",
+			"body": "./svg/om.svg"
+		},
+		"pc": {
+			"name": "Pacific Community",
+			"translation": "Pacific Community",
+			"body": "./svg/pc.svg"
+		},
+		"pk": {
+			"name": "Pakistan",
+			"translation": "Pakistan",
+			"body": "./svg/pk.svg"
+		},
+		"pw": {
+			"name": "Palau",
+			"translation": "Palau",
+			"body": "./svg/pw.svg"
+		},
+		"pa": {
+			"name": "Panama",
+			"translation": "Panama",
+			"body": "./svg/pa.svg"
+		},
+		"pg": {
+			"name": "Papua New Guinea",
+			"translation": "Papua New Guinea",
+			"body": "./svg/pg.svg"
+		},
+		"py": {
+			"name": "Paraguay",
+			"translation": "Paraguay",
+			"body": "./svg/py.svg"
+		},
+		"pe": {
+			"name": "Peru",
+			"translation": "Peru",
+			"body": "./svg/pe.svg"
+		},
+		"ph": {
+			"name": "Philippines",
+			"translation": "Philippines",
+			"body": "./svg/ph.svg"
+		},
+		"pn": {
+			"name": "Pitcairn",
+			"translation": "Pitcairn",
+			"body": "./svg/pn.svg"
+		},
+		"pl": {
+			"name": "Poland",
+			"translation": "Poland",
+			"body": "./svg/pl.svg"
+		},
+		"pt": {
+			"name": "Portugal",
+			"translation": "Portugal",
+			"body": "./svg/pt.svg"
+		},
+		"pr": {
+			"name": "Puerto Rico",
+			"translation": "Puerto Rico",
+			"body": "./svg/pr.svg"
+		},
+		"qa": {
+			"name": "Qatar",
+			"translation": "Qatar",
+			"body": "./svg/qa.svg"
+		},
+		"cg": {
+			"name": "Republic of the Congo",
+			"translation": "Republic of the Congo",
+			"body": "./svg/cg.svg"
+		},
+		"ro": {
+			"name": "Romania",
+			"translation": "Romania",
+			"body": "./svg/ro.svg"
+		},
+		"ru": {
+			"name": "Russia",
+			"translation": "Russia",
+			"body": "./svg/ru.svg"
+		},
+		"rw": {
+			"name": "Rwanda",
+			"translation": "Rwanda",
+			"body": "./svg/rw.svg"
+		},
+		"re": {
+			"name": "Réunion",
+			"translation": "Réunion",
+			"body": "./svg/re.svg"
+		},
+		"bl": {
+			"name": "Saint Barthélemy",
+			"translation": "Saint Barthélemy",
+			"body": "./svg/bl.svg"
+		},
+		"sh-hl": {
+			"name": "Saint Helena",
+			"translation": "Saint Helena",
+			"body": "./svg/sh-hl.svg"
+		},
+		"sh": {
+			"name": "Saint Helena, Ascension and Tristan da Cunha",
+			"translation": "Saint Helena, Ascension and Tristan da Cunha",
+			"body": "./svg/sh.svg"
+		},
+		"kn": {
+			"name": "Saint Kitts and Nevis",
+			"translation": "Saint Kitts and Nevis",
+			"body": "./svg/kn.svg"
+		},
+		"lc": {
+			"name": "Saint Lucia",
+			"translation": "Saint Lucia",
+			"body": "./svg/lc.svg"
+		},
+		"mf": {
+			"name": "Saint Martin",
+			"translation": "Saint Martin",
+			"body": "./svg/mf.svg"
+		},
+		"pm": {
+			"name": "Saint Pierre and Miquelon",
+			"translation": "Saint Pierre and Miquelon",
+			"body": "./svg/pm.svg"
+		},
+		"vc": {
+			"name": "Saint Vincent and the Grenadines",
+			"translation": "Saint Vincent and the Grenadines",
+			"body": "./svg/vc.svg"
+		},
+		"ws": {
+			"name": "Samoa",
+			"translation": "Samoa",
+			"body": "./svg/ws.svg"
+		},
+		"sm": {
+			"name": "San Marino",
+			"translation": "San Marino",
+			"body": "./svg/sm.svg"
+		},
+		"st": {
+			"name": "Sao Tome and Principe",
+			"translation": "Sao Tome and Principe",
+			"body": "./svg/st.svg"
+		},
+		"sa": {
+			"name": "Saudi Arabia",
+			"translation": "Saudi Arabia",
+			"body": "./svg/sa.svg"
+		},
+		"gb-sct": {
+			"name": "Scotland",
+			"translation": "Scotland",
+			"body": "./svg/gb-sct.svg"
+		},
+		"sn": {
+			"name": "Senegal",
+			"translation": "Senegal",
+			"body": "./svg/sn.svg"
+		},
+		"rs": {
+			"name": "Serbia",
+			"translation": "Serbia",
+			"body": "./svg/rs.svg"
+		},
+		"sc": {
+			"name": "Seychelles",
+			"translation": "Seychelles",
+			"body": "./svg/sc.svg"
+		},
+		"sl": {
+			"name": "Sierra Leone",
+			"translation": "Sierra Leone",
+			"body": "./svg/sl.svg"
+		},
+		"sg": {
+			"name": "Singapore",
+			"translation": "Singapore",
+			"body": "./svg/sg.svg"
+		},
+		"sx": {
+			"name": "Sint Maarten",
+			"translation": "Sint Maarten",
+			"body": "./svg/sx.svg"
+		},
+		"sk": {
+			"name": "Slovakia",
+			"translation": "Slovakia",
+			"body": "./svg/sk.svg"
+		},
+		"si": {
+			"name": "Slovenia",
+			"translation": "Slovenia",
+			"body": "./svg/si.svg"
+		},
+		"sb": {
+			"name": "Solomon Islands",
+			"translation": "Solomon Islands",
+			"body": "./svg/sb.svg"
+		},
+		"so": {
+			"name": "Somalia",
+			"translation": "Somalia",
+			"body": "./svg/so.svg"
+		},
+		"za": {
+			"name": "South Africa",
+			"translation": "South Africa",
+			"body": "./svg/za.svg"
+		},
+		"gs": {
+			"name": "South Georgia and the South Sandwich Islands",
+			"translation": "South Georgia and the South Sandwich Islands",
+			"body": "./svg/gs.svg"
+		},
+		"kr": {
+			"name": "South Korea",
+			"translation": "South Korea",
+			"body": "./svg/kr.svg"
+		},
+		"ss": {
+			"name": "South Sudan",
+			"translation": "South Sudan",
+			"body": "./svg/ss.svg"
+		},
+		"es": {
+			"name": "Spain",
+			"translation": "Spain",
+			"body": "./svg/es.svg"
+		},
+		"lk": {
+			"name": "Sri Lanka",
+			"translation": "Sri Lanka",
+			"body": "./svg/lk.svg"
+		},
+		"ps": {
+			"name": "State of Palestine",
+			"translation": "State of Palestine",
+			"body": "./svg/ps.svg"
+		},
+		"sd": {
+			"name": "Sudan",
+			"translation": "Sudan",
+			"body": "./svg/sd.svg"
+		},
+		"sr": {
+			"name": "Suriname",
+			"translation": "Suriname",
+			"body": "./svg/sr.svg"
+		},
+		"sj": {
+			"name": "Svalbard and Jan Mayen",
+			"translation": "Svalbard and Jan Mayen",
+			"body": "./svg/sj.svg"
+		},
+		"se": {
+			"name": "Sweden",
+			"translation": "Sweden",
+			"body": "./svg/se.svg"
+		},
+		"ch": {
+			"name": "Switzerland",
+			"translation": "Switzerland",
+			"body": "./svg/ch.svg"
+		},
+		"sy": {
+			"name": "Syria",
+			"translation": "Syria",
+			"body": "./svg/sy.svg"
+		},
+		"tw": {
+			"name": "Taiwan",
+			"translation": "Taiwan",
+			"body": "./svg/tw.svg"
+		},
+		"tj": {
+			"name": "Tajikistan",
+			"translation": "Tajikistan",
+			"body": "./svg/tj.svg"
+		},
+		"tz": {
+			"name": "Tanzania",
+			"translation": "Tanzania",
+			"body": "./svg/tz.svg"
+		},
+		"th": {
+			"name": "Thailand",
+			"translation": "Thailand",
+			"body": "./svg/th.svg"
+		},
+		"tl": {
+			"name": "Timor-Leste",
+			"translation": "Timor-Leste",
+			"body": "./svg/tl.svg"
+		},
+		"tg": {
+			"name": "Togo",
+			"translation": "Togo",
+			"body": "./svg/tg.svg"
+		},
+		"tk": {
+			"name": "Tokelau",
+			"translation": "Tokelau",
+			"body": "./svg/tk.svg"
+		},
+		"to": {
+			"name": "Tonga",
+			"translation": "Tonga",
+			"body": "./svg/to.svg"
+		},
+		"tt": {
+			"name": "Trinidad and Tobago",
+			"translation": "Trinidad and Tobago",
+			"body": "./svg/tt.svg"
+		},
+		"sh-ta": {
+			"name": "Tristan da Cunha",
+			"translation": "Tristan da Cunha",
+			"body": "./svg/sh-ta.svg"
+		},
+		"tn": {
+			"name": "Tunisia",
+			"translation": "Tunisia",
+			"body": "./svg/tn.svg"
+		},
+		"tm": {
+			"name": "Turkmenistan",
+			"translation": "Turkmenistan",
+			"body": "./svg/tm.svg"
+		},
+		"tc": {
+			"name": "Turks and Caicos Islands",
+			"translation": "Turks and Caicos Islands",
+			"body": "./svg/tc.svg"
+		},
+		"tv": {
+			"name": "Tuvalu",
+			"translation": "Tuvalu",
+			"body": "./svg/tv.svg"
+		},
+		"tr": {
+			"name": "Türkiye",
+			"translation": "Türkiye",
+			"body": "./svg/tr.svg"
+		},
+		"ug": {
+			"name": "Uganda",
+			"translation": "Uganda",
+			"body": "./svg/ug.svg"
+		},
+		"ua": {
+			"name": "Ukraine",
+			"translation": "Ukraine",
+			"body": "./svg/ua.svg"
+		},
+		"ae": {
+			"name": "United Arab Emirates",
+			"translation": "United Arab Emirates",
+			"body": "./svg/ae.svg"
+		},
+		"gb": {
+			"name": "United Kingdom",
+			"translation": "United Kingdom",
+			"body": "./svg/gb.svg"
+		},
+		"un": {
+			"name": "United Nations",
+			"translation": "United Nations",
+			"body": "./svg/un.svg"
+		},
+		"um": {
+			"name": "United States Minor Outlying Islands",
+			"translation": "United States Minor Outlying Islands",
+			"body": "./svg/um.svg"
+		},
+		"us": {
+			"name": "United States of America",
+			"translation": "United States of America",
+			"body": "./svg/us.svg"
+		},
+		"xx": {
+			"name": "Unknown",
+			"translation": "Unknown",
+			"body": "./svg/xx.svg"
+		},
+		"uy": {
+			"name": "Uruguay",
+			"translation": "Uruguay",
+			"body": "./svg/uy.svg"
+		},
+		"uz": {
+			"name": "Uzbekistan",
+			"translation": "Uzbekistan",
+			"body": "./svg/uz.svg"
+		},
+		"vu": {
+			"name": "Vanuatu",
+			"translation": "Vanuatu",
+			"body": "./svg/vu.svg"
+		},
+		"ve": {
+			"name": "Venezuela",
+			"translation": "Venezuela",
+			"body": "./svg/ve.svg"
+		},
+		"vn": {
+			"name": "Vietnam",
+			"translation": "Vietnam",
+			"body": "./svg/vn.svg"
+		},
+		"vg": {
+			"name": "Virgin Islands (British)",
+			"translation": "Virgin Islands (British)",
+			"body": "./svg/vg.svg"
+		},
+		"vi": {
+			"name": "Virgin Islands (U.S.)",
+			"translation": "Virgin Islands (U.S.)",
+			"body": "./svg/vi.svg"
+		},
+		"gb-wls": {
+			"name": "Wales",
+			"translation": "Wales",
+			"body": "./svg/gb-wls.svg"
+		},
+		"wf": {
+			"name": "Wallis and Futuna",
+			"translation": "Wallis and Futuna",
+			"body": "./svg/wf.svg"
+		},
+		"eh": {
+			"name": "Western Sahara",
+			"translation": "Western Sahara",
+			"body": "./svg/eh.svg"
+		},
+		"ye": {
+			"name": "Yemen",
+			"translation": "Yemen",
+			"body": "./svg/ye.svg"
+		},
+		"zm": {
+			"name": "Zambia",
+			"translation": "Zambia",
+			"body": "./svg/zm.svg"
+		},
+		"zw": {
+			"name": "Zimbabwe",
+			"translation": "Zimbabwe",
+			"body": "./svg/zw.svg"
+		}
+	}
+}

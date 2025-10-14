@@ -7,6 +7,9 @@ export type { AlertProps, AlertVariant } from './components/Alert'
 export { AnimatedIcon, availableIcons } from './components/AnimatedIcon'
 export type { AnimatedIconProps } from './components/AnimatedIcon'
 
+export { FlagIcon, availableFlags, getAllFlags, getFlagInfo } from './components/FlagIcon'
+export type { FlagIconProps } from './components/FlagIcon'
+
 export { Avatar } from './components/Avatar'
 export type { AvatarProps, AvatarSize } from './components/Avatar'
 
