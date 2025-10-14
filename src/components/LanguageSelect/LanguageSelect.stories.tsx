@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React, { useState } from 'react'
 import { LanguageSelect, Language } from './index'
+import { FlagIcon } from '../FlagIcon'
 
 const meta = {
 	title: 'Components/LanguageSelect',
@@ -73,10 +74,10 @@ export const Disabled: Story = {
 export const CustomLanguages: Story = {
 	args: {
 		languages: [
-			{ code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },
-			{ code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
-			{ code: 'fr', name: 'French', nativeName: 'Français', flag: '🇫🇷' },
-			{ code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪' }
+			{ code: 'en', name: 'English', nativeName: 'English', flag: 'us' },
+			{ code: 'es', name: 'Spanish', nativeName: 'Español', flag: 'es' },
+			{ code: 'fr', name: 'French', nativeName: 'Français', flag: 'fr' },
+			{ code: 'de', name: 'German', nativeName: 'Deutsch', flag: 'de' }
 		],
 		label: 'Available Languages',
 		showSearch: false
@@ -100,8 +101,9 @@ export const WithCallback: Story = {
 							width: '100%'
 						}}
 					>
-						<p style={{ margin: 0, color: '#e0e0e0', fontSize: '0.875rem' }}>
-							<strong>Selected:</strong> {selectedLang.flag} {selectedLang.name} ({selectedLang.nativeName})
+						<p style={{ margin: 0, color: '#e0e0e0', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+							<strong>Selected:</strong> <FlagIcon flag={selectedLang.flag} width={24} height={24} rounded /> {selectedLang.name} (
+							{selectedLang.nativeName})
 						</p>
 						<p style={{ margin: '0.25rem 0 0 0', color: '#9ca3af', fontSize: '0.75rem' }}>Code: {selectedLang.code}</p>
 					</div>
@@ -247,14 +249,83 @@ export const AllLanguages: Story = {
 				style={{
 					color: '#9ca3af',
 					textAlign: 'center',
-					maxWidth: '400px',
+					maxWidth: '500px',
 					fontSize: '0.875rem',
 					margin: 0
 				}}
 			>
-				Showcasing all 12 default languages with smooth animations, gradient accents, and interactive hover effects.
+				Showcasing 86+ languages from around the world with beautiful flag icons, smooth animations, and interactive hover effects.
+				Includes major world languages, regional languages, and indigenous languages with native script support.
 			</p>
 			<LanguageSelect label="All Available Languages" showSearch />
 		</div>
 	)
+}
+
+export const RegionalLanguages: Story = {
+	render: () => (
+		<div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '1rem' }}>
+			<div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+				<h3 style={{ margin: '0 0 0.5rem 0', color: '#e0e0e0', fontSize: '1.25rem' }}>Regional Language Examples</h3>
+				<p style={{ margin: 0, color: '#9ca3af', fontSize: '0.875rem' }}>
+					Demonstrating support for various regional and minority languages
+				</p>
+			</div>
+			<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+				<div>
+					<LanguageSelect
+						label="Spanish Regional"
+						languages={[
+							{ code: 'es', name: 'Spanish', nativeName: 'Español', flag: 'es' },
+							{ code: 'ca', name: 'Catalan', nativeName: 'Català', flag: 'es-ct' },
+							{ code: 'eu', name: 'Basque', nativeName: 'Euskara', flag: 'es-pv' },
+							{ code: 'gl', name: 'Galician', nativeName: 'Galego', flag: 'es-ga' }
+						]}
+					/>
+				</div>
+				<div>
+					<LanguageSelect
+						label="UK Regional"
+						languages={[
+							{ code: 'en', name: 'English', nativeName: 'English', flag: 'gb' },
+							{ code: 'cy', name: 'Welsh', nativeName: 'Cymraeg', flag: 'gb-wls' },
+							{ code: 'gd', name: 'Scottish Gaelic', nativeName: 'Gàidhlig', flag: 'gb-sct' },
+							{ code: 'ga', name: 'Irish', nativeName: 'Gaeilge', flag: 'ie' }
+						]}
+					/>
+				</div>
+				<div>
+					<LanguageSelect
+						label="Indian Languages"
+						languages={[
+							{ code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: 'in' },
+							{ code: 'bn', name: 'Bengali', nativeName: 'বাংলা', flag: 'bd' },
+							{ code: 'te', name: 'Telugu', nativeName: 'తెలుగు', flag: 'in' },
+							{ code: 'mr', name: 'Marathi', nativeName: 'मराठी', flag: 'in' },
+							{ code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', flag: 'in' },
+							{ code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી', flag: 'in' }
+						]}
+						showSearch
+					/>
+				</div>
+				<div>
+					<LanguageSelect
+						label="African Languages"
+						languages={[
+							{ code: 'sw', name: 'Swahili', nativeName: 'Kiswahili', flag: 'ke' },
+							{ code: 'af', name: 'Afrikaans', nativeName: 'Afrikaans', flag: 'za' },
+							{ code: 'am', name: 'Amharic', nativeName: 'አማርኛ', flag: 'et' },
+							{ code: 'zu', name: 'Zulu', nativeName: 'isiZulu', flag: 'za' },
+							{ code: 'yo', name: 'Yoruba', nativeName: 'Yorùbá', flag: 'ng' },
+							{ code: 'ha', name: 'Hausa', nativeName: 'Hausa', flag: 'ng' }
+						]}
+						showSearch
+					/>
+				</div>
+			</div>
+		</div>
+	),
+	parameters: {
+		layout: 'fullscreen'
+	}
 }
