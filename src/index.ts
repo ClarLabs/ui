@@ -34,9 +34,6 @@ export type { CheckboxProps } from './components/Checkbox'
 export { Combobox } from './components/Combobox'
 export type { ComboboxOption, ComboboxProps } from './components/Combobox'
 
-export { Datagrid } from './components/Datagrid'
-export type { DatagridColumn, DatagridProps } from './components/Datagrid'
-
 export { DatePicker } from './components/DatePicker'
 export type { DatePickerProps } from './components/DatePicker'
 
