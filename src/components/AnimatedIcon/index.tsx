@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import iconData from './line-md.json'
+import styles from './styles.module.scss'
 
 export interface AnimatedIconProps {
 	icon: string
@@ -7,7 +8,8 @@ export interface AnimatedIconProps {
 	height?: number
 	duration?: number
 	disableAnimation?: boolean
-	color?: string
+	darkModeColor?: string
+	lightModeColor?: string
 	strokeWidth?: number
 	className?: string
 }
@@ -18,7 +20,8 @@ export function AnimatedIcon({
 	height = 24,
 	duration = 1,
 	disableAnimation = false,
-	color = '#4338ca',
+	darkModeColor = '#c7d2fe',
+	lightModeColor = '#4338ca',
 	strokeWidth = 2,
 	className = ''
 }: AnimatedIconProps) {
@@ -36,8 +39,8 @@ export function AnimatedIcon({
 
 		let processedContent = iconBody
 
-		// Replace currentColor with the specified color
-		processedContent = processedContent.replace(/currentColor/g, color)
+		// Replace currentColor with var(--icon-color) to use CSS custom property
+		processedContent = processedContent.replace(/currentColor/g, 'var(--icon-color)')
 
 		// Replace stroke-width values if strokeWidth is different from default
 		if (strokeWidth !== 2) {
@@ -67,7 +70,7 @@ export function AnimatedIcon({
 		}
 
 		return processedContent
-	}, [iconBody, color, strokeWidth, disableAnimation, duration])
+	}, [iconBody, strokeWidth, disableAnimation, duration])
 
 	if (!iconBody) {
 		return null
@@ -79,7 +82,13 @@ export function AnimatedIcon({
 			height={height}
 			viewBox="0 0 24 24"
 			xmlns="http://www.w3.org/2000/svg"
-			className={className}
+			className={`${styles.animatedIcon} ${className}`}
+			style={
+				{
+					'--icon-dark-color': darkModeColor,
+					'--icon-light-color': lightModeColor
+				} as React.CSSProperties
+			}
 			dangerouslySetInnerHTML={{ __html: svgContent }}
 		/>
 	)

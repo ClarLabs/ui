@@ -31,15 +31,29 @@ const meta = {
 			control: 'boolean',
 			description: 'Disable the icon animation'
 		},
-		color: {
+		darkModeColor: {
 			control: 'color',
-			description: 'Icon color'
+			description: 'Icon color in dark mode'
+		},
+		lightModeColor: {
+			control: 'color',
+			description: 'Icon color in light mode'
 		},
 		strokeWidth: {
 			control: 'number',
 			description: 'Stroke width of the icon'
 		}
-	}
+	},
+	decorators: [
+		(Story) => (
+			<div>
+				<div style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+					<button onClick={() => document.body.classList.toggle('light-mode')}>Toggle Light/Dark Mode</button>
+				</div>
+				<Story />
+			</div>
+		)
+	]
 } satisfies Meta<typeof AnimatedIcon>
 
 export default meta
@@ -52,7 +66,8 @@ export const Default: Story = {
 		height: 24,
 		duration: 1,
 		disableAnimation: false,
-		color: '#4338ca',
+		darkModeColor: '#c7d2fe',
+		lightModeColor: '#4338ca',
 		strokeWidth: 2
 	}
 }
@@ -64,7 +79,8 @@ export const Large: Story = {
 		height: 48,
 		duration: 1,
 		disableAnimation: false,
-		color: '#4338ca',
+		darkModeColor: '#c7d2fe',
+		lightModeColor: '#4338ca',
 		strokeWidth: 2
 	}
 }
@@ -76,7 +92,8 @@ export const CustomColor: Story = {
 		height: 32,
 		duration: 1,
 		disableAnimation: false,
-		color: '#ef4444',
+		darkModeColor: '#fca5a5',
+		lightModeColor: '#ef4444',
 		strokeWidth: 2
 	}
 }
@@ -88,7 +105,8 @@ export const SlowAnimation: Story = {
 		height: 32,
 		duration: 2,
 		disableAnimation: false,
-		color: '#4338ca',
+		darkModeColor: '#c7d2fe',
+		lightModeColor: '#4338ca',
 		strokeWidth: 2
 	}
 }
@@ -100,7 +118,8 @@ export const NoAnimation: Story = {
 		height: 32,
 		duration: 1,
 		disableAnimation: true,
-		color: '#22c55e',
+		darkModeColor: '#86efac',
+		lightModeColor: '#22c55e',
 		strokeWidth: 2
 	}
 }
@@ -112,7 +131,8 @@ export const ThickStroke: Story = {
 		height: 32,
 		duration: 1,
 		disableAnimation: false,
-		color: '#4338ca',
+		darkModeColor: '#c7d2fe',
+		lightModeColor: '#4338ca',
 		strokeWidth: 3
 	}
 }
@@ -153,7 +173,7 @@ export const AllIcons = {
 						e.currentTarget.style.borderColor = '#e5e7eb'
 					}}
 				>
-					<AnimatedIcon icon={iconName} width={32} height={32} color="#4338ca" />
+					<AnimatedIcon icon={iconName} width={32} height={32} />
 					<span
 						style={{
 							fontSize: '10px',
@@ -233,7 +253,7 @@ export const IconCategories = {
 											e.currentTarget.style.borderColor = '#e5e7eb'
 										}}
 									>
-										<AnimatedIcon icon={iconName} width={28} height={28} color="#4338ca" />
+										<AnimatedIcon icon={iconName} width={28} height={28} />
 										<span
 											style={{
 												fontSize: '9px',

@@ -1,0 +1,9 @@
+.animatedIcon {
+	--icon-color: var(--icon-dark-color);
+}
+
+:global(.light-mode) {
+	.animatedIcon {
+		--icon-color: var(--icon-light-color);
+	}
+}
