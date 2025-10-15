@@ -195,3 +195,6 @@ export type { FooterLink, FooterProps, FooterSection, FooterVariant, SocialLink 
 
 export { Title } from './components/Title'
 export type { TitleProps } from './components/Title'
+
+export { DataTable } from './components/DataTable'
+export type { DataTableColumn, DataTableProps } from './components/DataTable'
