@@ -2,24 +2,24 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { List } from './index'
 
 const items = [
-	{ id: '1', content: 'First item' },
-	{ id: '2', content: 'Second item' },
-	{ id: '3', content: 'Third item' },
-	{ id: '4', content: 'Fourth item' }
+	{ id: '1', title: 'First item' },
+	{ id: '2', title: 'Second item' },
+	{ id: '3', title: 'Third item' },
+	{ id: '4', title: 'Fourth item' }
 ]
 
 const itemsWithIcons = [
-	{ id: '1', content: 'Home', icon: '🏠' },
-	{ id: '2', content: 'Profile', icon: '👤' },
-	{ id: '3', content: 'Settings', icon: '⚙️' },
-	{ id: '4', content: 'Logout', icon: '🚪' }
+	{ id: '1', title: 'Home', icon: '🏠' },
+	{ id: '2', title: 'Profile', icon: '👤' },
+	{ id: '3', title: 'Settings', icon: '⚙️' },
+	{ id: '4', title: 'Logout', icon: '🚪' }
 ]
 
 const itemsWithBadges = [
-	{ id: '1', content: 'Inbox', badge: '5' },
-	{ id: '2', content: 'Drafts', badge: '2' },
-	{ id: '3', content: 'Sent' },
-	{ id: '4', content: 'Trash', badge: '12' }
+	{ id: '1', title: 'Inbox', badge: 5, badgeVariant: 'primary' },
+	{ id: '2', title: 'Drafts', badge: 2, badgeVariant: 'warning' },
+	{ id: '3', title: 'Sent' },
+	{ id: '4', title: 'Trash', badge: 12, badgeVariant: 'error' }
 ]
 
 const meta = {
@@ -81,7 +81,7 @@ export const Clickable: Story = {
 	args: {
 		items: items.map((item) => ({
 			...item,
-			onClick: () => alert(`Clicked: ${item.content}`)
+			onClick: () => alert(`Clicked: ${item.title}`)
 		})),
 		hoverable: true
 	}
@@ -90,24 +90,122 @@ export const Clickable: Story = {
 export const WithDisabled: Story = {
 	args: {
 		items: [
-			{ id: '1', content: 'Active item', icon: '✓' },
-			{ id: '2', content: 'Disabled item', disabled: true, icon: '✕' },
-			{ id: '3', content: 'Active item', icon: '✓' },
-			{ id: '4', content: 'Disabled item', disabled: true, icon: '✕' }
+			{ id: '1', title: 'Active item', icon: '✓' },
+			{ id: '2', title: 'Disabled item', disabled: true, icon: '✕' },
+			{ id: '3', title: 'Active item', icon: '✓' },
+			{ id: '4', title: 'Disabled item', disabled: true, icon: '✕' }
 		],
 		hoverable: true
+	}
+}
+
+export const WithSubtitles: Story = {
+	args: {
+		items: [
+			{
+				id: '1',
+				title: 'John Doe',
+				subtitle: 'john.doe@example.com',
+				icon: '👤',
+				badge: 3,
+				badgeVariant: 'primary'
+			},
+			{
+				id: '2',
+				title: 'Jane Smith',
+				subtitle: 'jane.smith@example.com',
+				icon: '👤',
+				badge: 1,
+				badgeVariant: 'success'
+			},
+			{
+				id: '3',
+				title: 'Bob Johnson',
+				subtitle: 'bob.johnson@example.com',
+				icon: '👤'
+			},
+			{
+				id: '4',
+				title: 'Alice Williams',
+				subtitle: 'alice.williams@example.com',
+				icon: '👤',
+				badge: 5,
+				badgeVariant: 'warning'
+			}
+		],
+		hoverable: true,
+		dividers: true
+	}
+}
+
+export const BadgeVariants: Story = {
+	args: {
+		items: [
+			{ id: '1', title: 'Default Badge', badge: 10, badgeVariant: 'default', icon: '📌' },
+			{ id: '2', title: 'Primary Badge', badge: 5, badgeVariant: 'primary', icon: '🔵' },
+			{ id: '3', title: 'Success Badge', badge: 3, badgeVariant: 'success', icon: '✅' },
+			{ id: '4', title: 'Warning Badge', badge: 7, badgeVariant: 'warning', icon: '⚠️' },
+			{ id: '5', title: 'Error Badge', badge: 2, badgeVariant: 'error', icon: '❌' },
+			{ id: '6', title: 'Info Badge', badge: 15, badgeVariant: 'info', icon: 'ℹ️' }
+		],
+		hoverable: true,
+		dividers: true
 	}
 }
 
 export const AllFeatures: Story = {
 	args: {
 		items: [
-			{ id: '1', content: 'Inbox', icon: '📥', badge: '5', onClick: () => console.log('Inbox') },
-			{ id: '2', content: 'Starred', icon: '⭐', badge: '2', onClick: () => console.log('Starred') },
-			{ id: '3', content: 'Sent', icon: '📤', onClick: () => console.log('Sent') },
-			{ id: '4', content: 'Drafts', icon: '📝', badge: '1', onClick: () => console.log('Drafts') },
-			{ id: '5', content: 'Spam', icon: '🚫', disabled: true },
-			{ id: '6', content: 'Trash', icon: '🗑️', badge: '12', onClick: () => console.log('Trash') }
+			{
+				id: '1',
+				title: 'Inbox',
+				subtitle: 'New messages',
+				icon: '📥',
+				badge: 5,
+				badgeVariant: 'primary',
+				onClick: () => console.log('Inbox')
+			},
+			{
+				id: '2',
+				title: 'Starred',
+				subtitle: 'Important items',
+				icon: '⭐',
+				badge: 2,
+				badgeVariant: 'warning',
+				onClick: () => console.log('Starred')
+			},
+			{
+				id: '3',
+				title: 'Sent',
+				subtitle: 'Outgoing mail',
+				icon: '📤',
+				onClick: () => console.log('Sent')
+			},
+			{
+				id: '4',
+				title: 'Drafts',
+				subtitle: 'Work in progress',
+				icon: '📝',
+				badge: 1,
+				badgeVariant: 'info',
+				onClick: () => console.log('Drafts')
+			},
+			{
+				id: '5',
+				title: 'Spam',
+				subtitle: 'Junk mail',
+				icon: '🚫',
+				disabled: true
+			},
+			{
+				id: '6',
+				title: 'Trash',
+				subtitle: 'Deleted items',
+				icon: '🗑️',
+				badge: 12,
+				badgeVariant: 'error',
+				onClick: () => console.log('Trash')
+			}
 		],
 		hoverable: true,
 		dividers: true

@@ -1,11 +1,14 @@
 import React from 'react'
 import styles from './styles.module.scss'
+import { Badge, BadgeVariant } from '../Badge'
 
 export interface ListItem {
 	id: string
-	content: React.ReactNode
+	title: React.ReactNode
+	subtitle?: React.ReactNode
 	icon?: React.ReactNode
-	badge?: React.ReactNode
+	badge?: string | number
+	badgeVariant?: BadgeVariant
 	disabled?: boolean
 	onClick?: () => void
 }
@@ -29,8 +32,17 @@ export function List({ items, hoverable = false, dividers = false, className = '
 					onClick={item.disabled ? undefined : item.onClick}
 				>
 					{item.icon && <span className={styles.icon}>{item.icon}</span>}
-					<span className={styles.content}>{item.content}</span>
-					{item.badge && <span className={styles.badge}>{item.badge}</span>}
+					<div className={styles.content}>
+						<span className={styles.title}>{item.title}</span>
+						{item.subtitle && <span className={styles.subtitle}>{item.subtitle}</span>}
+					</div>
+					{item.badge && (
+						<span className={styles.badge}>
+							<Badge variant={item.badgeVariant || 'default'} size="sm">
+								{item.badge}
+							</Badge>
+						</span>
+					)}
 				</li>
 			))}
 		</ul>

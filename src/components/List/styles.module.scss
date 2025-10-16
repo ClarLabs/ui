@@ -58,7 +58,23 @@
 
 .content {
 	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	min-width: 0;
+}
+
+.title {
 	font-size: 0.95rem;
+	line-height: 1.4;
+}
+
+.subtitle {
+	font-size: 0.8125rem;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.6);
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .badge {
@@ -95,5 +111,9 @@
 
 	.icon {
 		color: #6b7280;
+	}
+
+	.subtitle {
+		color: rgba(0, 0, 0, 0.5);
 	}
 }
