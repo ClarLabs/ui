@@ -198,3 +198,6 @@ export type { TitleProps } from './components/Title'
 
 export { DataTable } from './components/DataTable'
 export type { DataTableColumn, DataTableProps } from './components/DataTable'
+
+export { KanBan } from './components/KanBan'
+export type { KanBanColumn, KanBanItem, KanBanProps } from './components/KanBan'
