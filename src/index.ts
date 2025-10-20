@@ -201,3 +201,6 @@ export type { DataTableColumn, DataTableProps } from './components/DataTable'
 
 export { KanBan } from './components/KanBan'
 export type { KanBanColumn, KanBanItem, KanBanProps } from './components/KanBan'
+
+export { Chart } from './components/Chart'
+export type { ChartDataPoint, ChartDataset, ChartProps, ChartType } from './components/Chart'

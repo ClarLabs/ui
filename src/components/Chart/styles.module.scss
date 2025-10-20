@@ -1,0 +1,252 @@
+.chartContainer {
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: all 0.3s ease;
+}
+
+.title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: #e0e0e0;
+	margin: 0 0 1rem 0;
+}
+
+.chartWrapper {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	&::-webkit-scrollbar {
+		height: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 3px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 3px;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+}
+
+.svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.grid {
+	opacity: 0.3;
+}
+
+.gridLine {
+	stroke: rgba(255, 255, 255, 0.2);
+	stroke-width: 1;
+	stroke-dasharray: 4 4;
+}
+
+.xAxis,
+.yAxis {
+	user-select: none;
+}
+
+.axisLabel {
+	fill: #9ca3af;
+	font-size: 11px;
+	text-anchor: middle;
+}
+
+.yAxis .axisLabel {
+	text-anchor: end;
+}
+
+.animatedLine {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: drawLine 2s ease-out forwards;
+}
+
+.animatedArea {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+}
+
+.animatedBar {
+	transform-origin: bottom;
+	animation: growBar 1s ease-out forwards;
+}
+
+.animatedPie {
+	transform-origin: center;
+	opacity: 0;
+	animation: fadeInPie 0.8s ease-out forwards;
+}
+
+@keyframes drawLine {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes growBar {
+	from {
+		transform: scaleY(0);
+	}
+	to {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes fadeInPie {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.dataPoint {
+	transition: all 0.2s ease;
+	cursor: pointer;
+
+	&:hover {
+		r: 6;
+		filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+	}
+}
+
+.valueLabel {
+	fill: #e0e0e0;
+	font-size: 11px;
+	font-weight: 600;
+	text-anchor: middle;
+	pointer-events: none;
+}
+
+.pieSlice {
+	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+		filter: brightness(1.2);
+	}
+}
+
+.pieLabel {
+	fill: #ffffff;
+	font-size: 12px;
+	font-weight: 600;
+	text-anchor: middle;
+	pointer-events: none;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	justify-content: center;
+}
+
+.legendItem {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+}
+
+.legendColor {
+	width: 16px;
+	height: 16px;
+	border-radius: 0.25rem;
+	flex-shrink: 0;
+}
+
+.legendLabel {
+	color: #b0b0b0;
+	white-space: nowrap;
+}
+
+:global(.light-mode) {
+	.chartContainer {
+		background: rgba(255, 255, 255, 0.7);
+		border-color: rgba(0, 0, 0, 0.1);
+	}
+
+	.title {
+		color: #111827;
+	}
+
+	.chartWrapper {
+		&::-webkit-scrollbar-track {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.2);
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+
+	.gridLine {
+		stroke: rgba(0, 0, 0, 0.15);
+	}
+
+	.axisLabel {
+		fill: #6b7280;
+	}
+
+	.valueLabel {
+		fill: #111827;
+	}
+
+	.pieLabel {
+		fill: #ffffff;
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+	}
+
+	.legend {
+		border-top-color: rgba(0, 0, 0, 0.1);
+	}
+
+	.legendLabel {
+		color: #4b5563;
+	}
+
+	.dataPoint {
+		&:hover {
+			filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+		}
+	}
+}
