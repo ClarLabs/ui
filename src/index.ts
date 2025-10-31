@@ -49,6 +49,9 @@ export type { DropdownOption, DropdownProps } from './components/Dropdown'
 export { FilePicker } from './components/FilePicker'
 export type { FileItem, FilePickerProps, FileStatus } from './components/FilePicker'
 
+export { FileManager } from './components/FileManager'
+export type { FileItem as FileManagerFileItem, FileManagerProps } from './components/FileManager'
+
 export { Header } from './components/Header'
 export type { HeaderProps } from './components/Header'
 
