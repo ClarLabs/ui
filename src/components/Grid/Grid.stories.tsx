@@ -290,3 +290,44 @@ export const CardGallery: Story = {
 		</Grid>
 	)
 }
+
+export const AutoMobileStacking: Story = {
+	render: () => (
+		<div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+			<div>
+				<h3 style={{ color: '#e0e0e0', marginBottom: '1rem' }}>
+					Grid with columns=3 (automatically stacks to 1 column on mobile)
+				</h3>
+				<Grid columns={3} gap="md">
+					<DemoBox>Item 1</DemoBox>
+					<DemoBox>Item 2</DemoBox>
+					<DemoBox>Item 3</DemoBox>
+					<DemoBox>Item 4</DemoBox>
+					<DemoBox>Item 5</DemoBox>
+					<DemoBox>Item 6</DemoBox>
+				</Grid>
+			</div>
+			<div>
+				<h3 style={{ color: '#e0e0e0', marginBottom: '1rem' }}>
+					Grid with columns=4 and regular div children (not Grid.Item)
+				</h3>
+				<Grid columns={4} gap="lg">
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 1</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 2</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 3</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 4</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 5</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 6</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 7</div>
+					<div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '0.5rem' }}>Regular Div 8</div>
+				</Grid>
+			</div>
+			<div>
+				<h3 style={{ color: '#e0e0e0', marginBottom: '1rem' }}>Resize your browser to see items stack on mobile!</h3>
+				<p style={{ color: '#9ca3af', marginBottom: '1rem' }}>
+					All grids automatically stack to 1 column on mobile screens (&lt;640px) unless you explicitly set columnsSm.
+				</p>
+			</div>
+		</div>
+	)
+}

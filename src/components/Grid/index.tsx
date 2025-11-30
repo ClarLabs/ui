@@ -7,15 +7,15 @@ export type GridAlign = 'start' | 'center' | 'end' | 'stretch' | 'baseline'
 export type GridJustify = 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly'
 
 export interface GridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'className'> {
-	/** Number of columns (1-12) */
+	/** Number of columns (1-12). Applies from sm breakpoint (640px) and above. Defaults to 1 column on mobile for automatic stacking. */
 	columns?: GridColumns
-	/** Number of columns on small screens (mobile) */
+	/** Number of columns on small screens (mobile, <640px). If not specified, defaults to 1 column (stacked). */
 	columnsSm?: GridColumns
-	/** Number of columns on medium screens (tablet) */
+	/** Number of columns on medium screens (tablet, ≥768px) */
 	columnsMd?: GridColumns
-	/** Number of columns on large screens (desktop) */
+	/** Number of columns on large screens (desktop, ≥1024px) */
 	columnsLg?: GridColumns
-	/** Number of columns on extra large screens */
+	/** Number of columns on extra large screens (≥1280px) */
 	columnsXl?: GridColumns
 	/** Gap between grid items */
 	gap?: GridGap

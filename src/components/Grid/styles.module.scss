@@ -7,16 +7,20 @@ $breakpoint-xl: 1280px;
 .grid {
 	display: grid;
 	width: 100%;
+	// Default to 1 column on mobile for stacking
+	grid-template-columns: 1fr;
 }
 
-// Column definitions (1-12)
-@for $i from 1 through 12 {
-	.columns-#{$i} {
-		grid-template-columns: repeat($i, minmax(0, 1fr));
+// Column definitions (1-12) - Apply at sm breakpoint and above by default
+@media (min-width: $breakpoint-sm) {
+	@for $i from 1 through 12 {
+		.columns-#{$i} {
+			grid-template-columns: repeat($i, minmax(0, 1fr));
+		}
 	}
 }
 
-// Responsive columns
+// Responsive columns - sm and above
 @media (min-width: $breakpoint-sm) {
 	@for $i from 1 through 12 {
 		.columns-sm-#{$i} {
