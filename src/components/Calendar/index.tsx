@@ -6,11 +6,13 @@ export interface CalendarEvent {
 	date: Date
 	title: string
 	color?: string
+	data?: { [key: string]: string }
 }
 
-export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onClick'> {
 	value?: Date
-	onChange?: (date: Date) => void
+	onChange?: (date: Date) => void // Called when month changes with Date object of new month
+	onClick?: (events: CalendarEvent[]) => void // Called when date is clicked with events for that day
 	minDate?: Date
 	maxDate?: Date
 	events?: CalendarEvent[]
@@ -28,6 +30,7 @@ const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 export function Calendar({
 	value,
 	onChange,
+	onClick,
 	minDate,
 	maxDate,
 	events = [],
@@ -118,24 +121,37 @@ export function Calendar({
 	}, [viewDate, firstDayOfWeek])
 
 	const handlePreviousMonth = () => {
-		setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() - 1))
+		const newDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1)
+		setViewDate(newDate)
+		onChange?.(newDate)
 	}
 
 	const handleNextMonth = () => {
-		setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() + 1))
+		const newDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1)
+		setViewDate(newDate)
+		onChange?.(newDate)
 	}
 
 	const handleDateClick = (date: Date) => {
 		if (isDateDisabled(date)) return
 		setSelectedDate(date)
-		onChange?.(date)
+		const dayEvents = getEventsForDate(date)
+		onClick?.(dayEvents)
 	}
 
 	const handleToday = () => {
 		const today = new Date()
+		const monthChanged = viewDate.getMonth() !== today.getMonth() || viewDate.getFullYear() !== today.getFullYear()
+
 		setViewDate(today)
 		setSelectedDate(today)
-		onChange?.(today)
+
+		if (monthChanged) {
+			onChange?.(today)
+		}
+
+		const todayEvents = getEventsForDate(today)
+		onClick?.(todayEvents)
 	}
 
 	const isToday = (date: Date) => isSameDay(date, new Date())

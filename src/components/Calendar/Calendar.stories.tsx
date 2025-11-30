@@ -25,8 +25,12 @@ const meta = {
 			description: '0 = Sunday, 1 = Monday'
 		},
 		onChange: {
-			action: 'dateSelected',
-			description: 'Callback when a date is selected'
+			action: 'monthChanged',
+			description: 'Callback when the month is changed, returns Date object of new month'
+		},
+		onClick: {
+			action: 'dateClicked',
+			description: 'Callback when a date is clicked, returns events for that day'
 		}
 	}
 } satisfies Meta<typeof Calendar>
@@ -129,28 +133,36 @@ export const WithMinMaxDates: Story = {
 export const Interactive: Story = {
 	render: () => {
 		const [selectedDate, setSelectedDate] = useState<Date | null>(new Date())
+		const [currentMonth, setCurrentMonth] = useState<Date>(new Date())
 
 		return (
 			<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-				<Calendar value={selectedDate || undefined} onChange={(date) => setSelectedDate(date)} />
-				{selectedDate && (
-					<div
-						style={{
-							padding: '1rem 1.5rem',
-							background: 'rgba(99, 102, 241, 0.1)',
-							borderRadius: '0.75rem',
-							border: '1px solid rgba(99, 102, 241, 0.3)',
-							textAlign: 'center'
-						}}
-					>
-						<p style={{ margin: 0, color: '#e0e0e0', fontSize: '0.875rem' }}>
-							<strong>Selected Date:</strong>
-						</p>
-						<p style={{ margin: '0.25rem 0 0 0', color: '#818cf8', fontSize: '1.125rem', fontWeight: 600 }}>
-							{selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-						</p>
-					</div>
-				)}
+				<Calendar
+					value={selectedDate || undefined}
+					onChange={(date) => {
+						setCurrentMonth(date)
+						console.log('Month changed to:', date)
+					}}
+					onClick={(events) => {
+						console.log('Date clicked, events:', events)
+					}}
+				/>
+				<div
+					style={{
+						padding: '1rem 1.5rem',
+						background: 'rgba(99, 102, 241, 0.1)',
+						borderRadius: '0.75rem',
+						border: '1px solid rgba(99, 102, 241, 0.3)',
+						textAlign: 'center'
+					}}
+				>
+					<p style={{ margin: 0, color: '#e0e0e0', fontSize: '0.875rem' }}>
+						<strong>Current Month:</strong>
+					</p>
+					<p style={{ margin: '0.25rem 0 0 0', color: '#818cf8', fontSize: '1.125rem', fontWeight: 600 }}>
+						{currentMonth.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+					</p>
+				</div>
 			</div>
 		)
 	}
@@ -163,37 +175,43 @@ export const EventCalendar: Story = {
 				id: '1',
 				date: new Date(2025, 9, 15),
 				title: 'Product Launch',
-				color: '#6366f1'
+				color: '#6366f1',
+				data: { location: 'Conference Room A', type: 'launch' }
 			},
 			{
 				id: '2',
 				date: new Date(2025, 9, 18),
 				title: 'Team Standup',
-				color: '#10b981'
+				color: '#10b981',
+				data: { duration: '30min', type: 'meeting' }
 			},
 			{
 				id: '3',
 				date: new Date(2025, 9, 18),
 				title: 'Client Meeting',
-				color: '#f59e0b'
+				color: '#f59e0b',
+				data: { client: 'Acme Corp', type: 'meeting' }
 			},
 			{
 				id: '4',
 				date: new Date(2025, 9, 20),
 				title: 'Sprint Review',
-				color: '#8b5cf6'
+				color: '#8b5cf6',
+				data: { sprint: 'Sprint 24', type: 'review' }
 			},
 			{
 				id: '5',
 				date: new Date(2025, 9, 22),
 				title: 'Deadline',
-				color: '#ef4444'
+				color: '#ef4444',
+				data: { project: 'Q4 Release', type: 'deadline' }
 			},
 			{
 				id: '6',
 				date: new Date(2025, 9, 25),
 				title: 'Workshop',
-				color: '#14b8a6'
+				color: '#14b8a6',
+				data: { topic: 'React Best Practices', type: 'workshop' }
 			},
 			{
 				id: '7',
@@ -205,17 +223,28 @@ export const EventCalendar: Story = {
 				id: '8',
 				date: new Date(2025, 9, 28),
 				title: 'All Hands',
-				color: '#6366f1'
+				color: '#6366f1',
+				data: { attendees: 'all', type: 'meeting' }
 			}
 		]
 
-		const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-
-		const selectedEvents = selectedDate ? events.filter((event) => event.date.toDateString() === selectedDate.toDateString()) : []
+		const [selectedEvents, setSelectedEvents] = useState<CalendarEvent[]>([])
+		const [currentMonth, setCurrentMonth] = useState<Date>(new Date(2025, 9, 1))
 
 		return (
 			<div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', maxWidth: '450px' }}>
-				<Calendar variant="modern" events={events} value={selectedDate || undefined} onChange={(date) => setSelectedDate(date)} />
+				<Calendar
+					variant="modern"
+					events={events}
+					onChange={(date) => {
+						setCurrentMonth(date)
+						console.log('Month changed to:', date)
+					}}
+					onClick={(events) => {
+						setSelectedEvents(events)
+						console.log('Date clicked, events:', events)
+					}}
+				/>
 				{selectedEvents.length > 0 && (
 					<div
 						style={{
@@ -227,7 +256,7 @@ export const EventCalendar: Story = {
 						}}
 					>
 						<h4 style={{ margin: '0 0 1rem 0', color: '#e0e0e0', fontSize: '0.95rem', fontWeight: 600 }}>
-							Events on {selectedDate?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+							Events ({selectedEvents.length})
 						</h4>
 						<div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
 							{selectedEvents.map((event) => (
@@ -235,24 +264,35 @@ export const EventCalendar: Story = {
 									key={event.id}
 									style={{
 										display: 'flex',
-										alignItems: 'center',
-										gap: '0.75rem',
+										flexDirection: 'column',
+										gap: '0.5rem',
 										padding: '0.75rem',
 										background: 'rgba(255, 255, 255, 0.05)',
 										borderRadius: '0.5rem',
 										borderLeft: `3px solid ${event.color}`
 									}}
 								>
-									<span
-										style={{
-											width: '0.625rem',
-											height: '0.625rem',
-											borderRadius: '50%',
-											backgroundColor: event.color,
-											flexShrink: 0
-										}}
-									/>
-									<span style={{ color: '#e0e0e0', fontSize: '0.875rem' }}>{event.title}</span>
+									<div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+										<span
+											style={{
+												width: '0.625rem',
+												height: '0.625rem',
+												borderRadius: '50%',
+												backgroundColor: event.color,
+												flexShrink: 0
+											}}
+										/>
+										<span style={{ color: '#e0e0e0', fontSize: '0.875rem' }}>{event.title}</span>
+									</div>
+									{event.data && Object.keys(event.data).length > 0 && (
+										<div style={{ paddingLeft: '1.375rem', fontSize: '0.75rem', color: '#9ca3af' }}>
+											{Object.entries(event.data).map(([key, value]) => (
+												<div key={key}>
+													<strong>{key}:</strong> {value}
+												</div>
+											))}
+										</div>
+									)}
 								</div>
 							))}
 						</div>
