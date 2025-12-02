@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 
 export interface DataTableColumn<T = any> {
@@ -50,6 +50,11 @@ export function DataTable<T = any>({
 	const [editingRow, setEditingRow] = useState<any>(null)
 	const [isAddingRow, setIsAddingRow] = useState(false)
 	const [newRow, setNewRow] = useState<any>({})
+
+	// Sync internal state with external data prop changes
+	useEffect(() => {
+		setData(initialData)
+	}, [initialData])
 
 	const handleEditClick = (row: T, index: number) => {
 		setEditingRowIndex(index)
