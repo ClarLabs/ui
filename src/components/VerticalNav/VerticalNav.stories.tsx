@@ -107,6 +107,49 @@ export const Clickable: Story = {
 	}
 }
 
+export const WithSelected: Story = {
+	args: {
+		items: [
+			{ id: '1', label: 'Dashboard', icon: '📊', href: '/', selected: true },
+			{ id: '2', label: 'Users', icon: '👥', href: '/users' },
+			{ id: '3', label: 'Settings', icon: '⚙️', href: '/settings' },
+			{ id: '4', label: 'Logout', icon: '🚪', href: '/logout' }
+		],
+		orientation: 'vertical'
+	}
+}
+
+export const WithNestedSelected: Story = {
+	args: {
+		items: [
+			{ id: '1', label: 'Home', icon: '🏠' },
+			{
+				id: '2',
+				label: 'Products',
+				icon: '📦',
+				children: [
+					{ id: '2-1', label: 'All Products', selected: true },
+					{ id: '2-2', label: 'Categories' },
+					{ id: '2-3', label: 'Inventory' }
+				]
+			},
+			{
+				id: '3',
+				label: 'Orders',
+				icon: '🛒',
+				children: [
+					{ id: '3-1', label: 'Pending' },
+					{ id: '3-2', label: 'Completed' },
+					{ id: '3-3', label: 'Cancelled' }
+				]
+			},
+			{ id: '4', label: 'Settings', icon: '⚙️' }
+		],
+		orientation: 'vertical',
+		defaultExpandedIds: ['2']
+	}
+}
+
 export const WithDisabled: Story = {
 	args: {
 		items: [

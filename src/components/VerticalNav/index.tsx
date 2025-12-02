@@ -11,6 +11,7 @@ export interface NavItem {
 	disabled?: boolean
 	badge?: React.ReactNode
 	megaMenu?: boolean
+	selected?: boolean
 }
 
 export type NavOrientation = 'vertical' | 'horizontal'
@@ -65,11 +66,11 @@ function NavItemComponent({ item, level, expandedIds, onToggle, onItemClick, ori
 	)
 
 	const content = item.href ? (
-		<a href={item.href} className={`${styles.navItem} ${item.disabled ? styles.disabled : ''} ${level > 0 ? styles.nested : ''}`} onClick={handleClick}>
+		<a href={item.href} className={`${styles.navItem} ${item.disabled ? styles.disabled : ''} ${level > 0 ? styles.nested : ''} ${item.selected ? styles.selected : ''}`} onClick={handleClick}>
 			{renderContent()}
 		</a>
 	) : (
-		<button type="button" className={`${styles.navItem} ${item.disabled ? styles.disabled : ''} ${level > 0 ? styles.nested : ''}`} onClick={handleClick}>
+		<button type="button" className={`${styles.navItem} ${item.disabled ? styles.disabled : ''} ${level > 0 ? styles.nested : ''} ${item.selected ? styles.selected : ''}`} onClick={handleClick}>
 			{renderContent()}
 		</button>
 	)
