@@ -67,6 +67,9 @@ export type { ListItem, ListProps } from './components/List'
 export { Modal } from './components/Modal'
 export type { ModalProps, ModalSize } from './components/Modal'
 
+export { NotificationCenter } from './components/NotificationCenter'
+export type { Notification, NotificationCenterProps, NotificationType } from './components/NotificationCenter'
+
 export { Pagination } from './components/Pagination'
 export type { PaginationProps } from './components/Pagination'
 
