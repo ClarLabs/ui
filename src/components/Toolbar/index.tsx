@@ -116,7 +116,7 @@ export function Toolbar({ menuItems = [], statusItems = [], children, className 
 
 					{hasDropdown && isOpen && (
 						<div
-							ref={(el) => (dropdownRefs.current[item.id] = el)}
+							ref={(el) => { dropdownRefs.current[item.id] = el }}
 							className={styles.dropdown}
 						>
 							{item.submenu!.map((subItem) => {

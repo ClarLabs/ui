@@ -76,7 +76,7 @@ export function ImageGallery({
 	const [lightboxOpen, setLightboxOpen] = useState(false)
 	const [lightboxIndex, setLightboxIndex] = useState(0)
 	const [isTransitioning, setIsTransitioning] = useState(false)
-	const autoPlayTimerRef = useRef<NodeJS.Timeout>()
+	const autoPlayTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
 	const handlePrevious = useCallback(() => {
 		if (isTransitioning) return

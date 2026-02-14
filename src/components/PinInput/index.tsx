@@ -238,7 +238,7 @@ export function PinInput({
 				{Array.from({ length }).map((_, index) => (
 					<input
 						key={index}
-						ref={(el) => (inputRefs.current[index] = el)}
+						ref={(el) => { inputRefs.current[index] = el }}
 						type={mask ? 'password' : 'text'}
 						inputMode={type === 'numeric' ? 'numeric' : 'text'}
 						maxLength={1}

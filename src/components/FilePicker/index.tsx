@@ -34,7 +34,7 @@ export function FilePicker({ accept, multiple = false, maxSize, disabled = false
 			return { file, status: 'idle' as FileStatus }
 		})
 
-		setFiles((prev) => [...prev, ...newFiles])
+		setFiles((prev) => (multiple ? [...prev, ...newFiles] : newFiles))
 		onChange?.(newFiles)
 
 		if (onUpload) {
@@ -82,7 +82,7 @@ export function FilePicker({ accept, multiple = false, maxSize, disabled = false
 		<div className={`${styles.filePicker} ${className}`}>
 			<div className={`${styles.dropzone} ${disabled ? styles.disabled : ''}`} onClick={() => !disabled && inputRef.current?.click()}>
 				<span className={styles.icon}>📁</span>
-				<span className={styles.text}>Click to select files</span>
+				<span className={styles.text}>{multiple ? 'Click to select files' : 'Click to select file'}</span>
 			</div>
 			<input
 				ref={inputRef}

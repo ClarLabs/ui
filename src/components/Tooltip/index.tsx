@@ -13,7 +13,7 @@ export interface TooltipProps {
 
 export function Tooltip({ children, content, position = 'top', delay = 200, className = '' }: TooltipProps) {
 	const [isVisible, setIsVisible] = useState(false)
-	const timeoutRef = useRef<NodeJS.Timeout>()
+	const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 	const triggerRef = useRef<HTMLDivElement>(null)
 
 	const showTooltip = () => {

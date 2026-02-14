@@ -9,8 +9,10 @@ export interface TitleProps {
 	className?: string
 }
 
+const headingMap = { 1: 'h1', 2: 'h2', 3: 'h3', 4: 'h4', 5: 'h5', 6: 'h6' } as const
+
 export function Title({ children, subtitle, level = 1, align = 'left', className = '' }: TitleProps) {
-	const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements
+	const HeadingTag = headingMap[level]
 
 	return (
 		<div className={`${styles.titleWrapper} ${styles[align]} ${className}`}>
