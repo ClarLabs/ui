@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import styles from './styles.module.scss'
 
 export type SidePanelPosition = 'left' | 'right'
@@ -52,7 +53,7 @@ export function SidePanel({
 
 	if (!isOpen) return null
 
-	return (
+	const panelContent = (
 		<div className={styles.overlay} onClick={closeOnOverlayClick ? onClose : undefined}>
 			<div className={`${styles.sidePanel} ${styles[position]} ${styles[size]} ${className}`} onClick={(e) => e.stopPropagation()}>
 				{(title || showCloseButton) && (
@@ -70,4 +71,6 @@ export function SidePanel({
 			</div>
 		</div>
 	)
+
+	return createPortal(panelContent, document.body)
 }
