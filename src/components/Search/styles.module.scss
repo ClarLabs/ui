@@ -245,6 +245,14 @@
 	color: #9ca3af;
 }
 
+.highlight {
+	font-weight: 700;
+	background: rgba(99, 102, 241, 0.25);
+	padding: 0.1em 0.2em;
+	border-radius: 0.25em;
+	color: inherit;
+}
+
 .paginationWrapper {
 	display: flex;
 	justify-content: center;
@@ -315,6 +323,11 @@
 
 	.resultBody {
 		color: #6b7280;
+	}
+
+	.highlight {
+		background: rgba(99, 102, 241, 0.2);
+		color: inherit;
 	}
 
 	.paginationWrapper {

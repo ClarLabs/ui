@@ -67,6 +67,42 @@ export interface SearchProps {
 	className?: string
 }
 
+function escapeRegex(str: string): string {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function highlightText(text: string, searchQuery: string): React.ReactNode {
+	const trimmed = searchQuery.trim()
+	if (!trimmed) return text
+
+	const terms = trimmed.split(/\s+/).filter(Boolean)
+	if (terms.length === 0) return text
+
+	const escaped = terms.map(escapeRegex)
+	const pattern = new RegExp(`(${escaped.join('|')})`, 'gi')
+
+	const parts: React.ReactNode[] = []
+	let lastIndex = 0
+	let match: RegExpExecArray | null
+	let key = 0
+	const regex = new RegExp(pattern.source, 'gi')
+	while ((match = regex.exec(text)) !== null) {
+		parts.push(text.slice(lastIndex, match.index))
+		parts.push(
+			<mark key={key++} className={styles.highlight}>
+				{match[0]}
+			</mark>
+		)
+		lastIndex = match.index + match[0].length
+	}
+	parts.push(text.slice(lastIndex))
+
+	// If no matches, return original text
+	if (parts.length === 1 && typeof parts[0] === 'string') return parts[0]
+
+	return parts
+}
+
 const searchIcon = (
 	<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
 		<path
@@ -382,21 +418,24 @@ export function Search({
 									</div>
 									<ul className={styles.resultList}>
 										{results.map((result) => {
+											const searchTerm = query.trim()
 											const resultContent = (
 												<>
 													<div className={styles.resultTitleRow}>
-														<h3 className={styles.resultTitle}>{result.title}</h3>
+														<h3 className={styles.resultTitle}>
+															{highlightText(result.title, searchTerm)}
+														</h3>
 														{result.tags && result.tags.length > 0 && (
 															<div className={styles.resultTags}>
 																{result.tags.map((tag) => (
 																	<Badge key={tag} variant="default" size="sm" className={styles.tag}>
-																		{tag}
+																		{highlightText(tag, searchTerm)}
 																	</Badge>
 																))}
 															</div>
 														)}
 													</div>
-													<p className={styles.resultBody}>{result.body}</p>
+													<p className={styles.resultBody}>{highlightText(result.body, searchTerm)}</p>
 												</>
 											)
 											return (
