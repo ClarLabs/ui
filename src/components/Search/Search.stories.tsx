@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React, { useCallback, useState } from 'react'
 import { Search } from './index'
-import type { SearchResult } from './index'
+import type { SearchDateFilter, SearchHistogramBucket, SearchResult } from './index'
 
 // Mock data for stories
 const mockResults: SearchResult[] = [
@@ -43,21 +43,51 @@ const mockResultsWithTags: SearchResult[] = [
 	{ id: 't3', title: 'Changelog', body: 'Version history and updates.', tags: ['Release'] }
 ]
 
-// Simulated API - filters mock data by query
-function simulateSearch(query: string, page: number, pageSize: number) {
+// Simulated API - filters mock data by query and optional date filter
+function simulateSearch(
+	query: string,
+	page: number,
+	pageSize: number,
+	dateFilter?: SearchDateFilter
+) {
 	const all = [...mockResults, ...mockResultsWithTags]
-	const filtered = all.filter(
+	let filtered = all.filter(
 		(r) =>
 			r.title.toLowerCase().includes(query.toLowerCase()) ||
 			r.body.toLowerCase().includes(query.toLowerCase()) ||
 			r.tags?.some((t) => t.toLowerCase().includes(query.toLowerCase()))
 	)
+	// Simulate date filtering by reducing results when filter applied
+	if (dateFilter) {
+		if ('date' in dateFilter && dateFilter.date) {
+			filtered = filtered.slice(0, Math.max(1, Math.floor(filtered.length * 0.6)))
+		} else if ('start' in dateFilter && dateFilter.start && dateFilter.end) {
+			filtered = filtered.slice(0, Math.max(1, Math.floor(filtered.length * 0.5)))
+		}
+	}
 	const start = (page - 1) * pageSize
 	return {
 		results: filtered.slice(start, start + pageSize),
 		totalCount: filtered.length
 	}
 }
+
+// Generate mock histogram data (last 30 days)
+function generateHistogramData(): SearchHistogramBucket[] {
+	const buckets: SearchHistogramBucket[] = []
+	const today = new Date()
+	for (let i = 29; i >= 0; i--) {
+		const d = new Date(today)
+		d.setDate(d.getDate() - i)
+		buckets.push({
+			date: d.toISOString().slice(0, 10),
+			count: Math.floor(Math.random() * 20) + 2
+		})
+	}
+	return buckets
+}
+
+const mockHistogramData = generateHistogramData()
 
 const meta = {
 	title: 'Components/Search',
@@ -103,11 +133,20 @@ export const Default: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
-				// Simulate API delay
 				await new Promise((r) => setTimeout(r, 400))
-				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
 				setResults(data)
 				setTotalCount(total)
 				setLoading(false)
@@ -136,17 +175,22 @@ export const WithTags: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 300))
-				const filtered = mockResultsWithTags.filter(
-					(r) =>
-						r.title.toLowerCase().includes(query.toLowerCase()) ||
-						r.tags?.some((t) => t.toLowerCase().includes(query.toLowerCase()))
-				)
-				const start = (page - 1) * pageSize
-				setResults(filtered.slice(start, start + pageSize))
-				setTotalCount(filtered.length)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
+				setResults(data)
+				setTotalCount(total)
 				setLoading(false)
 			},
 			[]
@@ -173,20 +217,22 @@ export const WithPagination: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 350))
-				const all = [...mockResults, ...mockResultsWithTags]
-				const filtered = query
-					? all.filter(
-							(r) =>
-								r.title.toLowerCase().includes(query.toLowerCase()) ||
-								r.body.toLowerCase().includes(query.toLowerCase())
-						)
-					: all
-				const start = (page - 1) * pageSize
-				setResults(filtered.slice(start, start + pageSize))
-				setTotalCount(filtered.length)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
+				setResults(data)
+				setTotalCount(total)
 				setLoading(false)
 			},
 			[]
@@ -213,10 +259,20 @@ export const LoadingState: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 2000))
-				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
 				setResults(data)
 				setTotalCount(total)
 				setLoading(false)
@@ -250,10 +306,20 @@ export const WithResultClick: Story = {
 		const [clicked, setClicked] = useState<string | null>(null)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 300))
-				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
 				setResults(
 					data.map((r) => ({
 						...r,
@@ -303,10 +369,20 @@ export const WithExternalLinks: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 300))
-				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
 				setResults(
 					data.map((r, i) => ({
 						...r,
@@ -344,16 +420,22 @@ export const EmptyState: Story = {
 		const [loading, setLoading] = useState(false)
 
 		const handleSearch = useCallback(
-			async ({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
 				setLoading(true)
 				await new Promise((r) => setTimeout(r, 400))
-				// Simulate no results for certain queries
-				const filtered = mockResults.filter((r) =>
-					r.title.toLowerCase().includes(query.toLowerCase())
-				)
-				const start = (page - 1) * pageSize
-				setResults(filtered.slice(start, start + pageSize))
-				setTotalCount(filtered.length)
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
+				setResults(data)
+				setTotalCount(total)
 				setLoading(false)
 			},
 			[]
@@ -376,14 +458,173 @@ export const EmptyState: Story = {
 	}
 }
 
+export const WithDateFilter: Story = {
+	render: () => {
+		const [results, setResults] = useState<SearchResult[]>([])
+		const [totalCount, setTotalCount] = useState(0)
+		const [loading, setLoading] = useState(false)
+		const [dateFilter, setDateFilter] = useState<SearchDateFilter>({ date: null })
+
+		const handleSearch = useCallback(
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter: df
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
+				setLoading(true)
+				await new Promise((r) => setTimeout(r, 400))
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, df)
+				setResults(data)
+				setTotalCount(total)
+				setLoading(false)
+			},
+			[]
+		)
+
+		return (
+			<div style={{ minHeight: '70vh' }}>
+				<p style={{ marginBottom: '1rem', fontSize: '0.875rem', color: 'var(--text-secondary, #9ca3af)' }}>
+					Optional single-date filter. Pick a date to narrow results.
+				</p>
+				<Search
+					onSearch={handleSearch}
+					results={results}
+					totalCount={totalCount}
+					pageSize={5}
+					placeholder="Search with date filter..."
+					dateFilterMode="date"
+					dateFilter={dateFilter}
+					onDateFilterChange={setDateFilter}
+				/>
+			</div>
+		)
+	}
+}
+
+export const WithDateRangeFilter: Story = {
+	render: () => {
+		const [results, setResults] = useState<SearchResult[]>([])
+		const [totalCount, setTotalCount] = useState(0)
+		const [loading, setLoading] = useState(false)
+		const [dateFilter, setDateFilter] = useState<SearchDateFilter>({ start: null, end: null })
+
+		const handleSearch = useCallback(
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter: df
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
+				setLoading(true)
+				await new Promise((r) => setTimeout(r, 400))
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, df)
+				setResults(data)
+				setTotalCount(total)
+				setLoading(false)
+			},
+			[]
+		)
+
+		return (
+			<div style={{ minHeight: '70vh' }}>
+				<p style={{ marginBottom: '1rem', fontSize: '0.875rem', color: 'var(--text-secondary, #9ca3af)' }}>
+					Optional date range filter. Select start and end dates.
+				</p>
+				<Search
+					onSearch={handleSearch}
+					results={results}
+					totalCount={totalCount}
+					pageSize={5}
+					placeholder="Search with date range..."
+					dateFilterMode="range"
+					dateFilter={dateFilter}
+					onDateFilterChange={setDateFilter}
+				/>
+			</div>
+		)
+	}
+}
+
+export const WithHistogram: Story = {
+	render: () => {
+		const [results, setResults] = useState<SearchResult[]>([])
+		const [totalCount, setTotalCount] = useState(0)
+		const [loading, setLoading] = useState(false)
+		const [dateFilter, setDateFilter] = useState<SearchDateFilter>({ start: null, end: null })
+
+		const handleSearch = useCallback(
+			async ({
+				query,
+				page,
+				pageSize,
+				dateFilter: df
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
+				setLoading(true)
+				await new Promise((r) => setTimeout(r, 400))
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, df)
+				setResults(data)
+				setTotalCount(total)
+				setLoading(false)
+			},
+			[]
+		)
+
+		return (
+			<div style={{ minHeight: '70vh' }}>
+				<p style={{ marginBottom: '1rem', fontSize: '0.875rem', color: 'var(--text-secondary, #9ca3af)' }}>
+					Histogram shows hits over time. Drag on the chart to narrow the date range.
+				</p>
+				<Search
+					onSearch={handleSearch}
+					results={results}
+					totalCount={totalCount}
+					pageSize={5}
+					placeholder="Search to see histogram..."
+					dateFilterMode="range"
+					dateFilter={dateFilter}
+					onDateFilterChange={setDateFilter}
+					histogramData={mockHistogramData}
+					onHistogramBrush={(range) => setDateFilter({ start: range.start, end: range.end })}
+				/>
+			</div>
+		)
+	}
+}
+
 export const NoDebounce: Story = {
 	render: () => {
 		const [results, setResults] = useState<SearchResult[]>([])
 		const [totalCount, setTotalCount] = useState(0)
 
 		const handleSearch = useCallback(
-			({ query, page, pageSize }: { query: string; page: number; pageSize: number }) => {
-				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize)
+			({
+				query,
+				page,
+				pageSize,
+				dateFilter
+			}: {
+				query: string
+				page: number
+				pageSize: number
+				dateFilter?: SearchDateFilter
+			}) => {
+				const { results: data, totalCount: total } = simulateSearch(query, page, pageSize, dateFilter)
 				setResults(data)
 				setTotalCount(total)
 			},

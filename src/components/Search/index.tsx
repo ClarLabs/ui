@@ -1,9 +1,20 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Input } from '../Input'
 import { Pagination } from '../Pagination'
 import { Badge } from '../Badge'
 import { Spinner } from '../Spinner'
+import { DatePicker } from '../DatePicker'
+import { DateRangePicker } from '../DateRangePicker'
 import styles from './styles.module.scss'
+
+export type SearchDateFilter = { date: Date | null } | { start: Date | null; end: Date | null }
+
+export interface SearchHistogramBucket {
+	/** Date as ISO string (YYYY-MM-DD) */
+	date: string
+	/** Hit count for this date */
+	count: number
+}
 
 export interface SearchResult {
 	/** Unique identifier */
@@ -24,7 +35,12 @@ export interface SearchResult {
 
 export interface SearchProps {
 	/** Callback when user searches or changes page. Hook to any data source (API, local filter, etc.) */
-	onSearch: (params: { query: string; page: number; pageSize: number }) => void | Promise<void>
+	onSearch: (params: {
+		query: string
+		page: number
+		pageSize: number
+		dateFilter?: SearchDateFilter
+	}) => void | Promise<void>
 	/** Search results from your data source */
 	results: SearchResult[]
 	/** Total number of results (for pagination) */
@@ -37,6 +53,16 @@ export interface SearchProps {
 	loading?: boolean
 	/** Debounce delay in ms before firing onSearch (0 = no debounce) */
 	debounceMs?: number
+	/** Show optional date filter. Use 'date' for single date or 'range' for date range */
+	dateFilterMode?: 'date' | 'range'
+	/** Controlled date filter value */
+	dateFilter?: SearchDateFilter
+	/** Called when date filter changes (e.g. from picker or histogram brush) */
+	onDateFilterChange?: (filter: SearchDateFilter) => void
+	/** Optional histogram data - date vs hits. Renders above results when provided. */
+	histogramData?: SearchHistogramBucket[]
+	/** Called when user brushes/drags on histogram to select a date range */
+	onHistogramBrush?: (range: { start: Date; end: Date }) => void
 	/** Custom class name */
 	className?: string
 }
@@ -61,20 +87,42 @@ export function Search({
 	placeholder = 'Search...',
 	loading = false,
 	debounceMs = 300,
+	dateFilterMode,
+	dateFilter,
+	onDateFilterChange,
+	histogramData,
+	onHistogramBrush,
 	className = ''
 }: SearchProps) {
 	const [query, setQuery] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
 	const [hasSearched, setHasSearched] = useState(false)
-	const debounceRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+	const [internalDateFilter, setInternalDateFilter] = useState<SearchDateFilter | undefined>(undefined)
+	const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+	const histogramRef = useRef<HTMLDivElement>(null)
+
+	const effectiveDateFilter = dateFilter ?? internalDateFilter
 
 	const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
 
 	const performSearch = useCallback(
-		(searchQuery: string, page: number) => {
-			onSearch({ query: searchQuery, page, pageSize })
+		(searchQuery: string, page: number, filter?: SearchDateFilter) => {
+			onSearch({ query: searchQuery, page, pageSize, dateFilter: filter ?? effectiveDateFilter })
 		},
-		[onSearch, pageSize]
+		[onSearch, pageSize, effectiveDateFilter]
+	)
+
+	const handleDateFilterChange = useCallback(
+		(filter: SearchDateFilter) => {
+			if (onDateFilterChange) {
+				onDateFilterChange(filter)
+			} else {
+				setInternalDateFilter(filter)
+			}
+			setCurrentPage(1)
+			performSearch(query.trim(), 1, filter)
+		},
+		[onDateFilterChange, query, performSearch]
 	)
 
 	const handleInputChange = useCallback(
@@ -132,8 +180,78 @@ export function Search({
 		[query, performSearch]
 	)
 
+	// Histogram brush state
+	const [brushStart, setBrushStart] = useState<number | null>(null)
+	const [brushEnd, setBrushEnd] = useState<number | null>(null)
+	const isBrushing = brushStart !== null
+
+	const handleHistogramMouseDown = useCallback(
+		(e: React.MouseEvent<HTMLDivElement>) => {
+			if (!histogramData?.length || dateFilterMode !== 'range') return
+			const rect = histogramRef.current?.getBoundingClientRect()
+			if (!rect) return
+			const x = (e.clientX - rect.left) / rect.width
+			const idx = Math.floor(x * histogramData.length)
+			const clampedIdx = Math.max(0, Math.min(idx, histogramData.length - 1))
+			setBrushStart(clampedIdx)
+			setBrushEnd(clampedIdx)
+		},
+		[histogramData, dateFilterMode]
+	)
+
+	const handleHistogramMouseMove = useCallback(
+		(e: React.MouseEvent<HTMLDivElement>) => {
+			if (brushStart === null || !histogramData?.length) return
+			const rect = histogramRef.current?.getBoundingClientRect()
+			if (!rect) return
+			const x = (e.clientX - rect.left) / rect.width
+			const idx = Math.floor(x * histogramData.length)
+			const clampedIdx = Math.max(0, Math.min(idx, histogramData.length - 1))
+			setBrushEnd(clampedIdx)
+		},
+		[brushStart, histogramData]
+	)
+
+	const handleHistogramMouseUp = useCallback(() => {
+		if (brushStart === null || brushEnd === null || !histogramData?.length || dateFilterMode !== 'range') {
+			setBrushStart(null)
+			setBrushEnd(null)
+			return
+		}
+		const [startIdx, endIdx] = brushStart <= brushEnd ? [brushStart, brushEnd] : [brushEnd, brushStart]
+		const startDate = new Date(histogramData[startIdx].date + 'T00:00:00Z')
+		const endDate = new Date(histogramData[endIdx].date + 'T23:59:59Z')
+		onHistogramBrush?.({ start: startDate, end: endDate })
+		handleDateFilterChange({ start: startDate, end: endDate })
+		setBrushStart(null)
+		setBrushEnd(null)
+	}, [brushStart, brushEnd, histogramData, dateFilterMode, onHistogramBrush, handleDateFilterChange])
+
+	useEffect(() => {
+		if (isBrushing) {
+			const handleUp = () => handleHistogramMouseUp()
+			window.addEventListener('mouseup', handleUp)
+			return () => window.removeEventListener('mouseup', handleUp)
+		}
+	}, [isBrushing, handleHistogramMouseUp])
+
+	useEffect(() => {
+		if (isBrushing) {
+			const handleMove = (e: MouseEvent) => {
+				if (!histogramRef.current) return
+				const rect = histogramRef.current.getBoundingClientRect()
+				const x = (e.clientX - rect.left) / rect.width
+				const idx = Math.floor(x * (histogramData?.length ?? 1))
+				const clampedIdx = Math.max(0, Math.min(idx, (histogramData?.length ?? 1) - 1))
+				setBrushEnd(clampedIdx)
+			}
+			window.addEventListener('mousemove', handleMove)
+			return () => window.removeEventListener('mousemove', handleMove)
+		}
+	}, [isBrushing, histogramData?.length])
+
 	// Cleanup debounce on unmount
-	React.useEffect(() => {
+	useEffect(() => {
 		return () => {
 			if (debounceRef.current) clearTimeout(debounceRef.current)
 		}
@@ -142,6 +260,7 @@ export function Search({
 	const isActive = hasSearched && query.trim().length > 0
 	const showResults = isActive
 	const showPagination = showResults && totalCount > pageSize
+	const showHistogram = showResults && histogramData && histogramData.length > 0
 
 	return (
 		<div className={`${styles.search} ${isActive ? styles.active : styles.initial} ${className}`}>
@@ -150,19 +269,51 @@ export function Search({
 				onSubmit={handleSubmit}
 				role="search"
 			>
-				<div className={styles.inputWrapper}>
-					<Input
-						type="search"
-						value={query}
-						onChange={handleInputChange}
-						placeholder={placeholder}
-						icon={searchIcon}
-						fullWidth
-						size="lg"
-						className={styles.input}
-						aria-label="Search"
-						autoComplete="off"
-					/>
+				<div className={`${styles.formRow} ${isActive ? styles.compact : ''}`}>
+					<div className={styles.inputWrapper}>
+						<Input
+							type="search"
+							value={query}
+							onChange={handleInputChange}
+							placeholder={placeholder}
+							icon={searchIcon}
+							fullWidth
+							size="lg"
+							className={styles.input}
+							aria-label="Search"
+							autoComplete="off"
+						/>
+					</div>
+					{dateFilterMode && (
+						<div className={styles.dateFilterWrapper}>
+							{dateFilterMode === 'date' ? (
+								<DatePicker
+									value={
+										effectiveDateFilter && 'date' in effectiveDateFilter
+											? effectiveDateFilter.date ?? undefined
+											: undefined
+									}
+									onChange={(date) => handleDateFilterChange({ date: date ?? null })}
+									placeholder="Filter by date"
+								/>
+							) : (
+								<DateRangePicker
+									value={
+										effectiveDateFilter && 'start' in effectiveDateFilter
+											? {
+													start: effectiveDateFilter.start ?? null,
+													end: effectiveDateFilter.end ?? null
+												}
+											: { start: null, end: null }
+									}
+									onChange={(range) =>
+										handleDateFilterChange({ start: range.start ?? null, end: range.end ?? null })
+									}
+									placeholder="Filter by date range"
+								/>
+							)}
+						</div>
+					)}
 				</div>
 			</form>
 
@@ -175,6 +326,53 @@ export function Search({
 						</div>
 					) : (
 						<>
+							{showHistogram && (
+								<div
+									ref={histogramRef}
+									className={`${styles.histogram} ${dateFilterMode === 'range' ? styles.brushable : ''}`}
+									onMouseDown={handleHistogramMouseDown}
+									onMouseMove={handleHistogramMouseMove}
+									onMouseLeave={() => {
+										if (isBrushing) {
+											setBrushStart(null)
+											setBrushEnd(null)
+										}
+									}}
+									role={dateFilterMode === 'range' ? 'application' : undefined}
+									aria-label="Search results over time. Drag to narrow date range."
+								>
+									<div className={styles.histogramBars}>
+										{histogramData!.map((bucket, i) => {
+											const maxCount = Math.max(...histogramData!.map((b) => b.count), 1)
+											const heightPct = (bucket.count / maxCount) * 100
+											const isInBrush =
+												brushStart !== null &&
+												brushEnd !== null &&
+												i >= Math.min(brushStart, brushEnd) &&
+												i <= Math.max(brushStart, brushEnd)
+											return (
+												<div
+													key={bucket.date}
+													className={`${styles.histogramBar} ${isInBrush ? styles.brushSelected : ''}`}
+													style={{ height: `${heightPct}%` }}
+													title={`${bucket.date}: ${bucket.count} hits`}
+												/>
+											)
+										})}
+									</div>
+									<div className={styles.histogramLabels}>
+										{histogramData!.length > 0 && (
+											<>
+												<span>{histogramData![0].date}</span>
+												<span>{histogramData![histogramData!.length - 1].date}</span>
+											</>
+										)}
+									</div>
+									{dateFilterMode === 'range' && (
+										<p className={styles.histogramHint}>Drag to narrow date range</p>
+									)}
+								</div>
+							)}
 							{results.length > 0 ? (
 								<>
 									<div className={styles.resultsHeader}>

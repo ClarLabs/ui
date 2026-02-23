@@ -215,4 +215,9 @@ export { Chart } from './components/Chart'
 export type { ChartDataPoint, ChartDataset, ChartProps, ChartType } from './components/Chart'
 
 export { Search } from './components/Search'
-export type { SearchProps, SearchResult } from './components/Search'
+export type {
+	SearchDateFilter,
+	SearchHistogramBucket,
+	SearchProps,
+	SearchResult
+} from './components/Search'

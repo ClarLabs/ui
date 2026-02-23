@@ -366,8 +366,8 @@ export const MultipleCalendars: Story = {
 
 		return (
 			<div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-				<Calendar value={date1} onChange={setDate1} />
-				<Calendar value={date2} onChange={setDate2} />
+				<Calendar value={date1} onDayClick={setDate1} />
+				<Calendar value={date2} onDayClick={setDate2} />
 			</div>
 		)
 	}

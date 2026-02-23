@@ -141,7 +141,7 @@ export function DateRangePicker({
 					</div>
 					<Calendar
 						value={tempRange.start || value?.start || undefined}
-						onChange={handleDateClick}
+						onDayClick={handleDateClick}
 						minDate={minDate}
 						maxDate={maxDate}
 						highlightedDates={getHighlightedDates()}

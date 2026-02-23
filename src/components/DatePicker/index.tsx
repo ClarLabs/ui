@@ -84,7 +84,7 @@ export function DatePicker({
 				<div className={styles.popover}>
 					<Calendar
 						value={value}
-						onChange={handleDateChange}
+						onDayClick={handleDateChange}
 						minDate={minDate}
 						maxDate={maxDate}
 						variant={variant}

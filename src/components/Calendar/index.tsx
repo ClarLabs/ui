@@ -13,6 +13,8 @@ export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 	value?: Date
 	onChange?: (date: Date) => void // Called when month changes with Date object of new month
 	onClick?: (events: CalendarEvent[]) => void // Called when date is clicked with events for that day
+	/** Called when a date cell is clicked, passes the clicked date (for date/range pickers) */
+	onDayClick?: (date: Date) => void
 	minDate?: Date
 	maxDate?: Date
 	events?: CalendarEvent[]
@@ -31,6 +33,7 @@ export function Calendar({
 	value,
 	onChange,
 	onClick,
+	onDayClick,
 	minDate,
 	maxDate,
 	events = [],
@@ -137,6 +140,7 @@ export function Calendar({
 		setSelectedDate(date)
 		const dayEvents = getEventsForDate(date)
 		onClick?.(dayEvents)
+		onDayClick?.(date)
 	}
 
 	const handleToday = () => {
@@ -152,6 +156,7 @@ export function Calendar({
 
 		const todayEvents = getEventsForDate(today)
 		onClick?.(todayEvents)
+		onDayClick?.(today)
 	}
 
 	const isToday = (date: Date) => isSameDay(date, new Date())
